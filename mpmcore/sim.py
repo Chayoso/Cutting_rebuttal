@@ -260,7 +260,11 @@ class MPMCuttingSim:
         # ---- keep speed floor as-is (from YAML) ----
         floor_ratio = float(kcfg.get("min_speed_floor_ratio", 0.25))
         self.knife.min_speed_f[None] = floor_ratio * float(self.knife.base_speed)
-        
+
+        # ---- recovery time constant (YAML-settable for ablations) ----
+        rec_tau_s = float(sres.get("rec_tau_s", float(self.knife.rec_tau_f[None])))
+        self.knife.rec_tau_f[None] = max(1e-4, rec_tau_s)
+
         # ---- stash telemetry for JSON/debug ----
         self._k2_base = float(k2_base)
         self._k2_eff = float(k2_eff)

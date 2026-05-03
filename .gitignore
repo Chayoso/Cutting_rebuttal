@@ -1,0 +1,24 @@
+# Python virtualenv
+.venv/
+
+# Bytecode caches
+__pycache__/
+*.pyc
+*.pyo
+
+# SDF/voxel cache
+cache_sdf/
+
+# Experiment outputs (regeneratable)
+logs/
+sweep_logs/
+sanity_logs/
+sweep_console.log
+*.log
+
+# External asset pack (downloaded from Kenney.nl by build_real_fruit_meshes.py)
+assets/external_packs/
+
+# Local artifacts
+*.swp
+.DS_Store

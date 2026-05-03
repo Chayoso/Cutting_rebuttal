@@ -2,8 +2,9 @@
 Velocity Variation Experiment (per asset)
 ==========================================
 Sweeps cutting speed (v_cut) over a grid and collects EEF force curves
-for a single asset. Used to study how cutting force depends on speed
-for each material. Output per asset in logs/velocity_variation/<asset>/.
+for a single asset. Force values reported are raw simulator output
+`-force_world_N.z` in Newtons (no display scaling). Plot (a) uses raw
+time so different v_cut produce visibly different cut durations.
 
 Usage:
   python exp_velocity_variation.py --config configs/fruits/strawberry.yaml
@@ -38,13 +39,17 @@ ap.add_argument("--trials-per-velocity", type=int, default=1,
 ap.add_argument("--out-root", default="logs/velocity_variation")
 ap.add_argument("--skip-run", action="store_true",
                 help="Re-plot only from existing logs")
+ap.add_argument("--res-kq", type=float, default=None,
+                help="Override knife resistance k_quad_per_s (default keeps YAML value, "
+                     "set 0 to disable resistance)")
+ap.add_argument("--rec-tau", type=float, default=None,
+                help="Override knife resistance recovery tau (s)")
 args = ap.parse_args()
 
 asset_name = Path(args.config).stem
 OUT_DIR = Path(args.out_root) / asset_name
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-TARGET_DUR = 16.0
 N_INTERP = 500
 
 # ── Load base config ─────────────────────────────────────────────────────────
@@ -69,6 +74,10 @@ print()
 def make_trial_config(base, v_cut, trial_id):
     cfg = copy.deepcopy(base)
     cfg["knife"]["motion"]["cutting_speed_mps"] = float(v_cut)
+    if args.res_kq is not None:
+        cfg["knife"].setdefault("speed_resistance", {})["k_quad_per_s"] = float(args.res_kq)
+    if args.rec_tau is not None:
+        cfg["knife"].setdefault("speed_resistance", {})["rec_tau_s"] = float(args.rec_tau)
     trial_log_dir = str(OUT_DIR / trial_id)
     cfg.setdefault("output", {})["enabled"] = True
     cfg["output"]["fps"] = 60.0
@@ -83,12 +92,13 @@ def run_trial(v_cut, trial_id):
     trial_log_dir = cfg["output"]["logging"]["out_dir"]
     os.makedirs(trial_log_dir, exist_ok=True)
 
-    tmp_cfg_path = str(OUT_DIR / f"_tmp_{trial_id}.yaml")
-    with open(tmp_cfg_path, "w", encoding="utf-8") as f:
+    # Persist the per-trial config (don't delete) for reproducibility
+    cfg_snapshot = os.path.join(trial_log_dir, "trial_config.yaml")
+    with open(cfg_snapshot, "w", encoding="utf-8") as f:
         yaml.dump(cfg, f, default_flow_style=False)
 
     cmd = [sys.executable, "run.py",
-           "--config", tmp_cfg_path, "--headless", "--run-sim"]
+           "--config", cfg_snapshot, "--headless", "--run-sim"]
     env = os.environ.copy()
     env["PYTHONIOENCODING"] = "utf-8"
 
@@ -96,11 +106,6 @@ def run_trial(v_cut, trial_id):
     result = subprocess.run(cmd, capture_output=True, text=True, timeout=900,
                             encoding="utf-8", errors="replace", env=env)
     elapsed = time.time() - t0
-
-    try:
-        os.remove(tmp_cfg_path)
-    except OSError:
-        pass
 
     json_path = os.path.join(trial_log_dir, "ee_force_fps.json")
     if result.returncode != 0 or not os.path.exists(json_path):
@@ -110,16 +115,24 @@ def run_trial(v_cut, trial_id):
         return None
 
     try:
-        t, f_raw = load_force_curve(json_path)
-        peak = np.max(np.abs(f_raw))
+        c = load_force_curve(json_path)
+        peak = float(np.max(np.abs(c["f"])))
+        dur = float(c["t"][-1]) if len(c["t"]) > 0 else 0.0
+        v_act = c["v_actual_contact_mean"]
+        k2 = c["k2_eff_at_peak"]
     except Exception:
-        peak = -1
-    print(f"  [OK] {trial_id:20s} v={v_cut:.3f} m/s  "
-          f"{elapsed:5.0f}s  peak_F={peak:.2f}")
+        peak, dur, v_act, k2 = -1.0, -1.0, 0.0, 0.0
+    print(f"  [OK] {trial_id:20s} v_cmd={v_cut:.3f}  v_act={v_act:.3f}  "
+          f"{elapsed:5.0f}s  peak|F|={peak:.3f} N  cut={dur:.2f}s  k2_eff={k2:.0f}/s")
     return json_path
 
 
-def load_force_curve(json_path, target_duration=16.0):
+def load_force_curve(json_path):
+    """Return dict with raw_times, forces, knife_y, actual_speed (numerical
+    dy/dt of post-resistance position), and telemetry summaries — all
+    trimmed to the first cut window. Time axis is SIMULATION time, not
+    rescaled.
+    """
     with open(json_path, encoding="utf-8") as f:
         data = json.load(f)
     raw_times = np.array([r["time"] for r in data])
@@ -131,17 +144,50 @@ def load_force_curve(json_path, target_duration=16.0):
             break
     data = data[:cut_end]
     raw_times = raw_times[:cut_end]
+    knife_y = knife_y[:cut_end]
     forces = np.array([-r["force_world_N"]["z"] for r in data])
-    if raw_times[-1] > 1e-6:
-        times = raw_times * (target_duration / raw_times[-1])
+
+    # Actual blade speed from post-resistance y_anim (downward = positive)
+    if len(raw_times) >= 2:
+        dy = -np.gradient(knife_y, raw_times)  # positive when knife descending
+        actual_speed = dy
     else:
-        times = raw_times
-    return times, forces
+        actual_speed = np.zeros_like(raw_times)
+
+    # Mean actual speed in the contact window (where |F| is non-trivial)
+    f_thresh = 0.05 * float(np.max(np.abs(forces))) if len(forces) > 0 else 0.0
+    contact_mask = np.abs(forces) > f_thresh
+    if contact_mask.sum() >= 2:
+        v_actual_contact_mean = float(np.mean(actual_speed[contact_mask]))
+        v_actual_contact_min = float(np.min(actual_speed[contact_mask]))
+    else:
+        v_actual_contact_mean = float(np.mean(actual_speed)) if len(actual_speed) else 0.0
+        v_actual_contact_min = float(np.min(actual_speed)) if len(actual_speed) else 0.0
+
+    # Telemetry from JSON (knife resistance state at peak-force frame)
+    if len(forces) > 0:
+        peak_idx = int(np.argmax(np.abs(forces)))
+        tel = data[peak_idx].get("telemetry", {}).get("knife_resistance", {})
+        k2_eff = float(tel.get("k2_eff_per_s", 0.0))
+        c_hat_peak = float(tel.get("c_hat_current", tel.get("c_hat", 0.0)))
+    else:
+        k2_eff = 0.0
+        c_hat_peak = 0.0
+
+    return {
+        "t": raw_times,
+        "f": forces,
+        "y": knife_y,
+        "v_actual": actual_speed,
+        "v_actual_contact_mean": v_actual_contact_mean,
+        "v_actual_contact_min": v_actual_contact_min,
+        "k2_eff_at_peak": k2_eff,
+        "c_hat_at_peak": c_hat_peak,
+    }
 
 
 def collect(paths):
-    """Return dict: velocity -> list of (common_t, force_curve)."""
-    common_t = np.linspace(0, TARGET_DUR, N_INTERP)
+    """Return dict: velocity -> list of curve-dicts (see load_force_curve)."""
     data = {}
     for v, trial_list in paths.items():
         curves = []
@@ -149,55 +195,81 @@ def collect(paths):
             if jp is None or not os.path.exists(jp):
                 continue
             try:
-                t, f_raw = load_force_curve(jp)
-                f_interp = np.interp(common_t, t, f_raw, left=0.0,
-                                     right=f_raw[-1])
-                curves.append(f_interp)
+                c = load_force_curve(jp)
+                if len(c["t"]) >= 2:
+                    curves.append(c)
             except Exception:
                 pass
         if curves:
-            data[v] = (common_t, np.array(curves))
+            data[v] = curves
     return data
 
 
 def plot_summary(data, tag=""):
     if not data:
         return
-    fig, axes = plt.subplots(1, 2, figsize=(12, 4.5), gridspec_kw={"wspace": 0.28})
+    fig, axes = plt.subplots(1, 3, figsize=(16, 4.5), gridspec_kw={"wspace": 0.32})
 
     cmap = plt.get_cmap("viridis")
     velocities = sorted(data.keys())
     colors = [cmap(i / max(1, len(velocities) - 1)) for i in range(len(velocities))]
 
-    # (a) Force curves overlaid per velocity
+    # (a) Force curves overlaid per velocity (raw time)
     ax = axes[0]
+    max_t = 0.0
     for v, c in zip(velocities, colors):
-        common_t, arr = data[v]
+        curves = data[v]
+        max_dur = max(cc["t"][-1] for cc in curves)
+        common_t_v = np.linspace(0, max_dur, N_INTERP)
+        resampled = [np.interp(common_t_v, cc["t"], cc["f"], left=0.0, right=cc["f"][-1])
+                     for cc in curves]
+        arr = np.array(resampled)
         mean_f = np.mean(arr, axis=0)
-        ax.plot(common_t, mean_f, lw=1.8, color=c, label=f"v={v:.2f} m/s")
+        ax.plot(common_t_v, mean_f, lw=1.8, color=c, label=f"v={v:.2f} m/s")
         if arr.shape[0] > 1:
             std_f = np.std(arr, axis=0)
-            ax.fill_between(common_t, mean_f - std_f, mean_f + std_f,
+            ax.fill_between(common_t_v, mean_f - std_f, mean_f + std_f,
                             alpha=0.15, color=c)
-    ax.set_title(f"(a) Force curves by cutting speed — {asset_name}")
-    ax.set_xlabel("Time (s)"); ax.set_ylabel("Contact Force (N)")
+        max_t = max(max_t, max_dur)
+    ax.set_title(f"(a) Force vs. raw time — {asset_name}")
+    ax.set_xlabel("Simulation time (s)")
+    ax.set_ylabel("Knife cutting force, -F_z (N)")
     ax.legend(fontsize=8, loc="upper right"); ax.grid(True, alpha=0.3)
-    ax.set_xlim(0, TARGET_DUR)
+    ax.set_xlim(0, max_t * 1.02 if max_t > 0 else 1.0)
 
-    # (b) Peak force vs. velocity
+    # (b) Peak |F| vs. commanded v_cut, with actual mean speed annotated
     ax = axes[1]
     peaks_mean, peaks_std = [], []
+    v_act_mean_list, v_act_min_list, k2_list = [], [], []
     for v in velocities:
-        _, arr = data[v]
-        pk = np.max(arr, axis=1)
+        curves = data[v]
+        pk = np.array([np.max(np.abs(cc["f"])) for cc in curves])
+        v_act = np.array([cc["v_actual_contact_mean"] for cc in curves])
+        v_min = np.array([cc["v_actual_contact_min"] for cc in curves])
+        k2 = np.array([cc["k2_eff_at_peak"] for cc in curves])
         peaks_mean.append(np.mean(pk))
-        peaks_std.append(np.std(pk) if arr.shape[0] > 1 else 0.0)
+        peaks_std.append(np.std(pk) if pk.size > 1 else 0.0)
+        v_act_mean_list.append(np.mean(v_act))
+        v_act_min_list.append(np.mean(v_min))
+        k2_list.append(np.mean(k2))
     ax.errorbar(velocities, peaks_mean, yerr=peaks_std,
                 fmt="o-", lw=2, ms=7, capsize=4, color="#c0392b")
-    ax.set_title(f"(b) Peak force vs. cutting speed — {asset_name}")
-    ax.set_xlabel("Cutting speed v_cut (m/s)")
-    ax.set_ylabel("Peak Contact Force (N)")
+    ax.set_title(f"(b) Peak |F| vs. commanded v_cut — {asset_name}")
+    ax.set_xlabel("Commanded v_cut (m/s)")
+    ax.set_ylabel("Peak |F| (N)")
     ax.grid(True, alpha=0.3)
+
+    # (c) Commanded vs actual blade speed (resistance diagnostic)
+    ax = axes[2]
+    ax.plot(velocities, velocities, "k--", lw=1, label="Identity (no resistance)")
+    ax.plot(velocities, v_act_mean_list, "o-", lw=2, color="#2980b9",
+            label="actual mean (in-contact)")
+    ax.plot(velocities, v_act_min_list, "s--", lw=1.2, color="#16a085",
+            label="actual min (in-contact)")
+    ax.set_title(f"(c) Resistance diagnostic — k2_eff≈{np.mean(k2_list):.0f}/s")
+    ax.set_xlabel("Commanded v_cut (m/s)")
+    ax.set_ylabel("Knife speed during contact (m/s)")
+    ax.legend(fontsize=8, loc="upper left"); ax.grid(True, alpha=0.3)
 
     fig.suptitle(f"Velocity Variation — {asset_name}  "
                  f"(E={NOM_E:.1e} Pa)", y=1.02)
@@ -223,8 +295,15 @@ if not args.skip_run:
             paths[v].append(jp)
     print(f"\nAll done in {(time.time() - t_start)/60:.1f} min")
 
-    # Save log
-    log = {f"{v:.3f}": [p for p in paths[v] if p] for v in args.velocities}
+    log = {
+        "config": str(args.config),
+        "asset": asset_name,
+        "nominal_E": NOM_E,
+        "nominal_v": NOM_V,
+        "velocities": args.velocities,
+        "trials_per_velocity": args.trials_per_velocity,
+        "paths": {f"{v:.3f}": [p for p in paths[v] if p] for v in args.velocities},
+    }
     with open(OUT_DIR / "velocity_log.json", "w", encoding="utf-8") as f:
         json.dump(log, f, indent=2)
 else:
@@ -234,24 +313,60 @@ else:
         sys.exit(1)
     with open(log_path, encoding="utf-8") as f:
         log = json.load(f)
-    for vstr, trial_list in log.items():
+    src = log.get("paths", log) if isinstance(log, dict) else log
+    for vstr, trial_list in src.items():
         v = float(vstr)
+        if v not in paths:
+            paths[v] = []
         paths[v] = trial_list
 
 # ── Plot ─────────────────────────────────────────────────────────────────────
 print("\n--- Summary plot ---")
 data = collect(paths)
-print(f"  Loaded {sum(len(arr) for _, arr in data.values())} curves "
-      f"across {len(data)} velocities")
+n_curves = sum(len(curves) for curves in data.values())
+print(f"  Loaded {n_curves} curves across {len(data)} velocities")
 plot_summary(data, tag="final")
 
-# Print peak-vs-velocity table
-print("\n" + "=" * 60)
-print(f"{'v_cut (m/s)':>12s}  {'peak mean':>10s}  {'peak std':>10s}  {'n':>4s}")
-print("-" * 60)
+# Print summary table + save summary.json
+print("\n" + "=" * 96)
+print(f"{'v_cmd':>8s}  {'peak|F| mean':>13s}  {'peak|F| std':>13s}  "
+      f"{'v_act_mean':>11s}  {'v_act_min':>10s}  {'cut dur':>9s}  "
+      f"{'k2_eff':>8s}  {'n':>3s}")
+print("-" * 96)
+summary_rows = []
 for v in sorted(data.keys()):
-    _, arr = data[v]
-    pk = np.max(arr, axis=1)
-    print(f"{v:>12.3f}  {np.mean(pk):>10.2f}  "
-          f"{np.std(pk):>10.2f}  {arr.shape[0]:>4d}")
-print("=" * 60)
+    curves = data[v]
+    pk = np.array([np.max(np.abs(cc["f"])) for cc in curves])
+    durs = np.array([cc["t"][-1] for cc in curves])
+    v_act = np.array([cc["v_actual_contact_mean"] for cc in curves])
+    v_min = np.array([cc["v_actual_contact_min"] for cc in curves])
+    k2 = np.array([cc["k2_eff_at_peak"] for cc in curves])
+    print(f"{v:>8.3f}  {np.mean(pk):>13.3f}  {np.std(pk):>13.3f}  "
+          f"{np.mean(v_act):>11.4f}  {np.mean(v_min):>10.4f}  "
+          f"{np.mean(durs):>9.3f}  {np.mean(k2):>8.0f}  {len(curves):>3d}")
+    summary_rows.append({
+        "v_cmd": float(v),
+        "n": int(len(curves)),
+        "peak_F_mean": float(np.mean(pk)),
+        "peak_F_std": float(np.std(pk)),
+        "peak_F_range": [float(np.min(pk)), float(np.max(pk))],
+        "v_actual_contact_mean": float(np.mean(v_act)),
+        "v_actual_contact_min": float(np.mean(v_min)),
+        "cut_dur_mean": float(np.mean(durs)),
+        "k2_eff_at_peak_mean": float(np.mean(k2)),
+    })
+print("=" * 96)
+
+summary = {
+    "asset": asset_name,
+    "config": str(args.config),
+    "nominal_E_Pa": NOM_E,
+    "nominal_v_mps": NOM_V,
+    "trials_per_velocity": int(args.trials_per_velocity),
+    "res_kq_override": (None if args.res_kq is None else float(args.res_kq)),
+    "rec_tau_override": (None if args.rec_tau is None else float(args.rec_tau)),
+    "rows": summary_rows,
+}
+with open(OUT_DIR / "summary.json", "w", encoding="utf-8") as f:
+    json.dump(summary, f, indent=2)
+print(f"  >> Summary saved: {OUT_DIR / 'summary.json'}")
