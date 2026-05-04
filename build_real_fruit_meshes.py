@@ -1,75 +1,129 @@
 """
-Build the 14 fruit meshes for assets/fruits/ using a mix of:
-  - Kenney Food Kit (CC0) for 11 fruits (apple, avocado, banana, grape, lemon,
-    orange, pear, pineapple, strawberry, tomato, watermelon).
-  - Geometric slicing for 2 (pineapple_slice from pineapple, watermelon_slice
-    from watermelon — half-cylinder/wedge cut).
-  - Procedural fruit-characteristic shapes for 4 (kiwi, mango, peach, persimmon)
-    that Kenney does not include.
+Build the 14 fruit meshes for assets/fruits/ from local FBX packs at
+~/Desktop/assets/. Each FBX is first converted to OBJ via headless Blender,
+then repaired (voxel-remesh if non-watertight), decimated to ~2000 faces, and
+scaled/centered to fit the existing config dimensions.
 
-All meshes are repaired (fill_holes + manifold), centered in XZ, translated so
-y_min = 0, and scaled so the longest XZ dimension matches the size used by the
-existing configs (cm-level realistic).
+Two slices (pineapple_slice, watermelon_slice) are cut from the corresponding
+whole-fruit FBX. Tomato uses a small Rockit apple model in lieu of a real
+tomato source in this asset pack.
 
-Run from the repo root:
-    .venv/bin/python build_real_fruit_meshes.py
+Run from the repo root (assumes /home/chayo/Desktop/assets exists locally):
+    python build_real_fruit_meshes.py
 """
 
 import os
 import shutil
+import subprocess
 from pathlib import Path
 import numpy as np
 import trimesh
 
 ROOT = Path(__file__).parent
-KENNEY_DIR = ROOT / "assets" / "external_packs" / "Models" / "OBJ format"
+LOCAL_PACKS = Path(os.path.expanduser("~/Desktop/assets"))
+WORK_DIR = ROOT / ".fbx_work"
+WORK_DIR.mkdir(exist_ok=True)
 OUT_DIR = ROOT / "assets" / "fruits"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
+BLENDER = "/snap/bin/blender"
 
-# Target longest XZ extent (m). These match the previous procedural assumptions
-# (matching the configs' SDF-voxel auto-scale at ~1.5 mm cell).
+# fruit -> (pack_dir_name, fbx_relative_path inside the pack[, "horizontal_slice"])
+FBX_SOURCES = {
+    "apple":            ("uploads_files_3935237_Granny+Smith+5_Apple_Model+FBX",
+                         "FBX/5_Apple_Model.fbx"),
+    "avocado":          ("uploads_files_3935237_Avocado+FBX",
+                         "Avocado FBX/Avocado_Model.fbx"),
+    "banana":           ("uploads_files_3935237_Banana+FBX",
+                         "Banana FBX/Banana_Model.fbx"),
+    "grape":            ("uploads_files_3935237_Cherry+FBX",
+                         "FBX/Cherry_Model_2.fbx"),
+    "kiwi":             ("uploads_files_3935237_Kiwi+FBX",
+                         "Kiwi FBX/Kiwi_Model.fbx"),
+    "lemon":            ("LemonModel_FBX",
+                         "Lemon_Model.fbx"),
+    "mango":            ("uploads_files_3935237_Mango+FBX",
+                         "Mango FBX/Mango_Model.fbx"),
+    "orange":           ("uploads_files_3935237_Orange+FBX",
+                         "Orange FBX/Orange_Model.fbx"),
+    "peach":            ("uploads_files_3935237_Red+plum+FBX",
+                         "FBX/Red plum_Model_1.fbx"),
+    "pear":             ("uploads_files_3935237_Pear+FBX",
+                         "Pear_Model.fbx"),
+    "persimmon":        ("uploads_files_3935237_Pumpkin+FBX",
+                         "Pumpkin FBX/Pumpkin_Model.fbx"),
+    "pineapple_slice":  ("uploads_files_3935237_Pineapple+FBX",
+                         "Pineapple0.fbx", "horizontal_slice"),
+    "strawberry":       ("uploads_files_3935237_Strawberry_FBX",
+                         "Strawberry_Model_1.fbx"),
+    "tomato":           ("uploads_files_3935237_Rockit+1_Apple_Model+FBX",
+                         "FBX/1_Apple_Model.fbx"),
+    "watermelon_slice": ("uploads_files_3935237_Watermelon+FBX",
+                         "FBX/Watermelon_Model.fbx", "horizontal_slice"),
+}
+
 TARGET_XZ = {
-    "apple":           0.070,
-    "avocado":         0.075,
-    "banana":          0.180,
-    "grape":           0.020,
-    "kiwi":            0.060,
-    "lemon":           0.060,
-    "mango":           0.090,
-    "orange":          0.075,
-    "peach":           0.070,
-    "pear":            0.070,
-    "persimmon":       0.065,
-    "pineapple_slice": 0.090,
-    "strawberry":      0.040,
-    "tomato":          0.065,
-    "watermelon_slice":0.120,
+    "apple":            0.070,
+    "avocado":          0.075,
+    "banana":           0.180,
+    "grape":            0.020,
+    "kiwi":             0.060,
+    "lemon":            0.060,
+    "mango":            0.090,
+    "orange":           0.075,
+    "peach":            0.070,
+    "pear":             0.070,
+    "persimmon":        0.065,
+    "pineapple_slice":  0.090,
+    "strawberry":       0.040,
+    "tomato":           0.065,
+    "watermelon_slice": 0.120,
 }
 
-# Mapping fruit -> Kenney source filename (None if procedural / sliced)
-KENNEY_FILE = {
-    "apple":      "apple.obj",
-    "avocado":    "avocado.obj",
-    "banana":     "banana.obj",
-    "grape":      "grapes.obj",
-    "lemon":      "lemon.obj",
-    "orange":     "orange.obj",
-    "pear":       "pear.obj",
-    "strawberry": "strawberry.obj",
-    "tomato":     "tomato.obj",
-}
+BLENDER_CONVERT = ROOT / ".blender_fbx_to_obj.py"
 
-# Slicing sources (whole fruit in Kenney, we cut a slice/wedge)
-SLICE_FROM = {
-    "pineapple_slice": ("pineapple.obj", "horizontal"),  # cut a horizontal slab
-    "watermelon_slice": ("watermelon.obj", "wedge"),      # cut a wedge (1/6 sphere)
-}
+
+def write_blender_script():
+    BLENDER_CONVERT.write_text("""
+import sys, os
+import bpy
+argv = sys.argv
+argv = argv[argv.index("--") + 1:] if "--" in argv else []
+in_path, out_path = argv[0], argv[1]
+bpy.ops.wm.read_factory_settings(use_empty=True)
+bpy.ops.import_scene.fbx(filepath=in_path)
+mesh_objs = [o for o in bpy.context.scene.objects if o.type == "MESH"]
+if not mesh_objs:
+    print("ERROR: no mesh"); sys.exit(1)
+bpy.ops.object.select_all(action="DESELECT")
+for o in mesh_objs:
+    o.select_set(True)
+bpy.context.view_layer.objects.active = mesh_objs[0]
+if len(mesh_objs) > 1:
+    bpy.ops.object.join()
+bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
+os.makedirs(os.path.dirname(out_path), exist_ok=True)
+bpy.ops.wm.obj_export(filepath=out_path, export_selected_objects=True,
+                      export_materials=False, export_uv=False,
+                      export_normals=False, export_triangulated_mesh=True,
+                      forward_axis="NEGATIVE_Z", up_axis="Y")
+""".lstrip())
+
+
+def convert_fbx_to_obj(fbx_path: Path, obj_path: Path):
+    if obj_path.exists():
+        return
+    obj_path.parent.mkdir(parents=True, exist_ok=True)
+    res = subprocess.run(
+        [BLENDER, "--background", "--python", str(BLENDER_CONVERT),
+         "--", str(fbx_path), str(obj_path)],
+        capture_output=True, timeout=180,
+    )
+    if res.returncode != 0 or not obj_path.exists():
+        raise RuntimeError(f"Blender conversion failed for {fbx_path.name}: "
+                           f"{res.stderr.decode()[:300]}")
 
 
 def repair_mesh(m, target_faces=2000):
-    """Best-effort manifold repair, then voxel-remesh fallback for any
-    remaining non-watertight result, then decimation to keep face count
-    manageable for SDF voxelization."""
     m = m.copy()
     m.process(validate=True)
     m.remove_unreferenced_vertices()
@@ -83,44 +137,39 @@ def repair_mesh(m, target_faces=2000):
         pitch = max(ext / 80.0, 1e-4)
         try:
             vox = m.voxelized(pitch=pitch).fill()
-            m_remesh = vox.marching_cubes
-            if m_remesh.is_watertight and len(m_remesh.faces) > 0:
-                m = m_remesh
-        except Exception as e:
-            print(f"    voxel-remesh failed: {e}")
-
-    # Decimate if too dense (voxel remesh produces 30k+ faces; we want ~2k)
+            mr = vox.marching_cubes
+            if mr.is_watertight and len(mr.faces) > 0:
+                m = mr
+        except Exception:
+            pass
     if len(m.faces) > target_faces * 1.5:
         try:
             m_dec = m.simplify_quadric_decimation(face_count=target_faces)
             if len(m_dec.faces) > 0:
                 if not m_dec.is_watertight:
                     trimesh.repair.fill_holes(m_dec)
-                # Voxel-remesh at coarse pitch as last resort to restore manifold
                 if not m_dec.is_watertight:
                     ext = float(np.max(m_dec.bounding_box.extents))
                     pitch = max(ext / 50.0, 1e-4)
                     try:
                         vox = m_dec.voxelized(pitch=pitch).fill()
-                        m_remesh = vox.marching_cubes
-                        if m_remesh.is_watertight and len(m_remesh.faces) > 0:
-                            # Re-decimate if still too dense after re-remesh
-                            if len(m_remesh.faces) > target_faces * 1.5:
-                                m_remesh = m_remesh.simplify_quadric_decimation(
+                        mr = vox.marching_cubes
+                        if mr.is_watertight and len(mr.faces) > 0:
+                            if len(mr.faces) > target_faces * 1.5:
+                                mr = mr.simplify_quadric_decimation(
                                     face_count=target_faces)
-                            m_dec = m_remesh
+                            m_dec = mr
                     except Exception:
                         pass
                 m = m_dec
-        except Exception as e:
-            print(f"    decimation failed: {e}")
+        except Exception:
+            pass
     return m
 
 
 def normalize_pose(m):
-    """Center XZ, place y_min on board (y=0)."""
     m = m.copy()
-    cx, cy, cz = m.bounding_box.centroid
+    cx, _, cz = m.bounding_box.centroid
     miny = m.bounds[0, 1]
     m.apply_translation([-cx, -miny, -cz])
     return m
@@ -137,62 +186,7 @@ def scale_to_xz(m, target_xz):
     return m
 
 
-def make_kiwi():
-    """Kiwi: smooth ellipsoid, longer in one axis."""
-    m = trimesh.creation.icosphere(subdivisions=3)
-    m.apply_scale([0.5, 0.5, 1.0])  # elongated
-    return m
-
-
-def make_mango():
-    """Mango: asymmetric ellipsoid, slight bend."""
-    m = trimesh.creation.icosphere(subdivisions=3)
-    m.apply_scale([0.55, 0.55, 1.0])
-    # Slight asymmetry: shift top vertices forward
-    v = m.vertices.copy()
-    z = v[:, 2]
-    z_max = z.max()
-    bias = 0.06 * np.maximum(0.0, z / z_max) ** 2  # nonlinear bend toward top
-    v[:, 0] += bias
-    m.vertices = v
-    return m
-
-
-def make_peach():
-    """Peach: nearly sphere, with vertical crease (shallow groove on +X side)."""
-    m = trimesh.creation.icosphere(subdivisions=4)
-    v = m.vertices.copy()
-    # Crease: depress vertices near x>0 axis on plane y close to 0
-    x = v[:, 0]
-    y = v[:, 1]
-    crease = 0.08 * np.exp(-((y / 0.15) ** 2)) * np.maximum(0.0, x)
-    v[:, 0] -= crease
-    m.vertices = v
-    return m
-
-
-def make_persimmon():
-    """Persimmon: oblate sphere (squashed top→bottom) with small calyx bump."""
-    m = trimesh.creation.icosphere(subdivisions=4)
-    m.apply_scale([1.0, 0.78, 1.0])  # oblate (Y is up here in trimesh default)
-    # Small calyx (4-leaf cup) on top: add a small disc/cup at +Y
-    calyx = trimesh.creation.cylinder(radius=0.30, height=0.06, sections=8)
-    calyx.apply_translation([0.0, 0.78 + 0.03, 0.0])
-    m = trimesh.util.concatenate([m, calyx])
-    m.merge_vertices()
-    return m
-
-
-PROCEDURAL = {
-    "kiwi":       make_kiwi,
-    "mango":      make_mango,
-    "peach":      make_peach,
-    "persimmon":  make_persimmon,
-}
-
-
-def _horizontal_slab(src, frac_low, frac_high):
-    """Cut a horizontal slab between two Y planes (frac of full height)."""
+def horizontal_slab(src, frac_low, frac_high):
     m = src.copy()
     miny, maxy = m.bounds[:, 1]
     h = maxy - miny
@@ -205,35 +199,23 @@ def _horizontal_slab(src, frac_low, frac_high):
     return m
 
 
-def slice_pineapple(src):
-    """Pineapple slice: thin horizontal slab from the middle of the pineapple
-    (where the body is thickest, before the leafy crown). ~12% thick."""
-    return _horizontal_slab(src, 0.30, 0.42)
-
-
-def slice_watermelon_wedge(src):
-    """Watermelon slice: thin horizontal slab cut through the middle of the
-    watermelon. Looks like a serving slice on a plate. ~10% thick."""
-    return _horizontal_slab(src, 0.45, 0.55)
-
-
 def build(name):
-    if name in KENNEY_FILE:
-        src_path = KENNEY_DIR / KENNEY_FILE[name]
-        m = trimesh.load(src_path, force="mesh")
-    elif name in SLICE_FROM:
-        src_file, mode = SLICE_FROM[name]
-        src = trimesh.load(KENNEY_DIR / src_file, force="mesh")
-        if mode == "horizontal":
-            m = slice_pineapple(src)
-        elif mode == "wedge":
-            m = slice_watermelon_wedge(src)
-        else:
-            raise ValueError(mode)
-    elif name in PROCEDURAL:
-        m = PROCEDURAL[name]()
-    else:
-        raise ValueError(f"unknown fruit: {name}")
+    if name not in FBX_SOURCES:
+        raise ValueError(name)
+    spec = FBX_SOURCES[name]
+    pack, rel_fbx = spec[0], spec[1]
+    mode = spec[2] if len(spec) > 2 else "whole"
+
+    fbx_path = LOCAL_PACKS / pack / rel_fbx
+    obj_path = WORK_DIR / f"{name}_raw.obj"
+    convert_fbx_to_obj(fbx_path, obj_path)
+
+    m = trimesh.load(obj_path, force="mesh")
+    if mode == "horizontal_slice":
+        if name == "watermelon_slice":
+            m = horizontal_slab(m, 0.45, 0.55)
+        elif name == "pineapple_slice":
+            m = horizontal_slab(m, 0.30, 0.42)
 
     m = repair_mesh(m)
     m = scale_to_xz(m, TARGET_XZ[name])
@@ -242,30 +224,27 @@ def build(name):
 
 
 def main():
-    # Backup existing assets/fruits/
-    backup = ROOT / "assets" / "fruits.procedural_backup"
-    if OUT_DIR.exists() and not backup.exists():
-        shutil.copytree(OUT_DIR, backup)
-        print(f"  Backed up old procedural meshes → {backup.relative_to(ROOT)}")
+    if not LOCAL_PACKS.exists():
+        raise SystemExit(f"FBX packs not found at {LOCAL_PACKS}")
+
+    write_blender_script()
 
     print(f"\n{'fruit':<20s}  {'faces':>6s}  {'verts':>6s}  "
-          f"{'bbox_x':>8s}  {'bbox_y':>8s}  {'bbox_z':>8s}  watertight")
-    print("-" * 84)
-    for name in sorted(TARGET_XZ.keys()):
+          f"{'bbox_x':>8s}  {'bbox_y':>8s}  {'bbox_z':>8s}  watertight  source")
+    print("-" * 110)
+    for name in sorted(FBX_SOURCES.keys()):
         try:
             m = build(name)
             out = OUT_DIR / f"{name}.obj"
             m.export(out)
             bb = m.bounding_box.extents
+            src_label = Path(FBX_SOURCES[name][1]).name
             print(f"{name:<20s}  {len(m.faces):>6d}  {len(m.vertices):>6d}  "
                   f"{bb[0]:>8.4f}  {bb[1]:>8.4f}  {bb[2]:>8.4f}  "
-                  f"{str(m.is_watertight)}")
+                  f"{str(m.is_watertight):>10s}  {src_label}")
         except Exception as e:
             print(f"{name:<20s}  FAIL: {e}")
-
     print(f"\nWrote 14 fruits to {OUT_DIR.relative_to(ROOT)}")
-    print("License: Kenney Food Kit (CC0) for non-procedural; procedural meshes "
-          "under repo license.")
 
 
 if __name__ == "__main__":
