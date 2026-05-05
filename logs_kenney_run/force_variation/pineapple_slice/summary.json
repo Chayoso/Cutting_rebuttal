@@ -1,0 +1,35 @@
+{
+  "asset": "pineapple_slice",
+  "config": "configs/fruits/pineapple_slice.yaml",
+  "noise_pct": 0.1,
+  "seed": 42,
+  "nominal_params": {
+    "youngs_modulus": 3000000.0,
+    "poisson_ratio": 0.3,
+    "density": 950.0,
+    "yield_stress_kpa": 200.0,
+    "cutting_speed_mps_fixed": 0.3
+  },
+  "noise_trials": {
+    "n": 30,
+    "peak_F_mean": 7.518313345848598,
+    "peak_F_std": 1.947937591868397,
+    "peak_F_range": [
+      4.2884525545613315,
+      11.211168608350134
+    ],
+    "cut_dur_mean": 0.44999999999999984,
+    "cut_dur_std": 1.1102230246251565e-16
+  },
+  "nominal_trials": {
+    "n": 3,
+    "peak_F_mean": 8.544655958811441,
+    "peak_F_std": 1.8505368284712465,
+    "peak_F_range": [
+      6.818334579467773,
+      11.111222267150879
+    ],
+    "cut_dur_mean": 0.44999999999999996,
+    "cut_dur_std": 0.0
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "asset": "lemon",
+  "config": "configs/fruits/lemon.yaml",
+  "nominal_E_Pa": 1500000.0,
+  "nominal_v_mps": 0.3,
+  "trials_per_velocity": 3,
+  "res_kq_override": null,
+  "rec_tau_override": null,
+  "rows": [
+    {
+      "v_cmd": 0.15,
+      "n": 3,
+      "peak_F_mean": 11.322027842203775,
+      "peak_F_std": 0.6007396254449549,
+      "peak_F_range": [
+        10.47574520111084,
+        11.809871673583984
+      ],
+      "v_actual_contact_mean": 0.14828445665030288,
+      "v_actual_contact_min": 0.11043306440114938,
+      "cut_dur_mean": 0.9000000000000011,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.2,
+      "n": 3,
+      "peak_F_mean": 16.14555899302165,
+      "peak_F_std": 2.221922050830262,
+      "peak_F_range": [
+        13.038409233093262,
+        18.104869842529297
+      ],
+      "v_actual_contact_mean": 0.1999994171162444,
+      "v_actual_contact_min": 0.19992451532743874,
+      "cut_dur_mean": 0.6666666666666671,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.25,
+      "n": 3,
+      "peak_F_mean": 17.51018460591634,
+      "peak_F_std": 2.7299807696553304,
+      "peak_F_range": [
+        15.121173858642578,
+        21.331220626831055
+      ],
+      "v_actual_contact_mean": 0.24998998808625492,
+      "v_actual_contact_min": 0.24982262402772903,
+      "cut_dur_mean": 0.5333333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.3,
+      "n": 3,
+      "peak_F_mean": 19.467227300008137,
+      "peak_F_std": 2.2231813995553575,
+      "peak_F_range": [
+        17.845991134643555,
+        22.610761642456055
+      ],
+      "v_actual_contact_mean": 0.29848284581128287,
+      "v_actual_contact_min": 0.2829337120056153,
+      "cut_dur_mean": 0.44999999999999996,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.35,
+      "n": 3,
+      "peak_F_mean": 20.32580629984538,
+      "peak_F_std": 0.03736205305800199,
+      "peak_F_range": [
+        20.284090042114258,
+        20.37474822998047
+      ],
+      "v_actual_contact_mean": 0.35001457003610476,
+      "v_actual_contact_min": 0.34986270591616614,
+      "cut_dur_mean": 0.3833333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.4,
+      "n": 3,
+      "peak_F_mean": 22.558632532755535,
+      "peak_F_std": 0.04200061875672245,
+      "peak_F_range": [
+        22.502689361572266,
+        22.603891372680664
+      ],
+      "v_actual_contact_mean": 0.40002239402383566,
+      "v_actual_contact_min": 0.39984629605896777,
+      "cut_dur_mean": 0.3333333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.45,
+      "n": 3,
+      "peak_F_mean": 24.80598513285319,
+      "peak_F_std": 0.13202337221517252,
+      "peak_F_range": [
+        24.62436866760254,
+        24.934301376342773
+      ],
+      "v_actual_contact_mean": 0.4474148560654034,
+      "v_actual_contact_min": 0.4311253130435945,
+      "cut_dur_mean": 0.3,
+      "k2_eff_at_peak_mean": 0.0
+    }
+  ]
+}

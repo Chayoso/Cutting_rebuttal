@@ -1,0 +1,35 @@
+{
+  "asset": "strawberry",
+  "config": "configs/fruits/strawberry.yaml",
+  "noise_pct": 0.1,
+  "seed": 42,
+  "nominal_params": {
+    "youngs_modulus": 200000.0,
+    "poisson_ratio": 0.35,
+    "density": 900.0,
+    "yield_stress_kpa": 10.0,
+    "cutting_speed_mps_fixed": 0.3
+  },
+  "noise_trials": {
+    "n": 30,
+    "peak_F_mean": 3.391777286166416,
+    "peak_F_std": 1.4465422291168457,
+    "peak_F_range": [
+      1.7021106708503677,
+      7.474514968887351
+    ],
+    "cut_dur_mean": 0.44999999999999984,
+    "cut_dur_std": 1.1102230246251565e-16
+  },
+  "nominal_trials": {
+    "n": 3,
+    "peak_F_mean": 2.5731388330459595,
+    "peak_F_std": 0.4862100265958177,
+    "peak_F_range": [
+      1.9605070352554321,
+      3.1498470306396484
+    ],
+    "cut_dur_mean": 0.44999999999999996,
+    "cut_dur_std": 0.0
+  }
+}

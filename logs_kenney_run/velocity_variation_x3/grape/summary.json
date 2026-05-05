@@ -1,0 +1,109 @@
+{
+  "asset": "grape",
+  "config": "configs/fruits/grape.yaml",
+  "nominal_E_Pa": 350000.0,
+  "nominal_v_mps": 0.3,
+  "trials_per_velocity": 3,
+  "res_kq_override": null,
+  "rec_tau_override": null,
+  "rows": [
+    {
+      "v_cmd": 0.15,
+      "n": 3,
+      "peak_F_mean": 3.732235908508301,
+      "peak_F_std": 1.7236758935023846,
+      "peak_F_range": [
+        1.640519142150879,
+        5.862127780914307
+      ],
+      "v_actual_contact_mean": 0.14682189173375523,
+      "v_actual_contact_min": 0.10848306119441951,
+      "cut_dur_mean": 0.9000000000000011,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.2,
+      "n": 3,
+      "peak_F_mean": 5.21295952796936,
+      "peak_F_std": 3.2037377647534817,
+      "peak_F_range": [
+        2.5885863304138184,
+        9.72364616394043
+      ],
+      "v_actual_contact_mean": 0.2000043010032108,
+      "v_actual_contact_min": 0.19987659528851454,
+      "cut_dur_mean": 0.6666666666666671,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.25,
+      "n": 3,
+      "peak_F_mean": 4.077646970748901,
+      "peak_F_std": 1.2146752597678234,
+      "peak_F_range": [
+        2.6058337688446045,
+        5.580677032470703
+      ],
+      "v_actual_contact_mean": 0.24998168969018886,
+      "v_actual_contact_min": 0.24986699223518372,
+      "cut_dur_mean": 0.5333333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.3,
+      "n": 3,
+      "peak_F_mean": 5.700466791788737,
+      "peak_F_std": 4.001501895648923,
+      "peak_F_range": [
+        2.6223220825195312,
+        11.351934432983398
+      ],
+      "v_actual_contact_mean": 0.2968311103888684,
+      "v_actual_contact_min": 0.27967013418674475,
+      "cut_dur_mean": 0.44999999999999996,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.35,
+      "n": 3,
+      "peak_F_mean": 9.10600479443868,
+      "peak_F_std": 6.692929937571369,
+      "peak_F_range": [
+        3.1377322673797607,
+        18.452354431152344
+      ],
+      "v_actual_contact_mean": 0.3499802692593741,
+      "v_actual_contact_min": 0.3498510271310807,
+      "cut_dur_mean": 0.3833333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.4,
+      "n": 3,
+      "peak_F_mean": 5.277531385421753,
+      "peak_F_std": 1.848620101043579,
+      "peak_F_range": [
+        3.9044787883758545,
+        7.890748977661133
+      ],
+      "v_actual_contact_mean": 0.3999694995582103,
+      "v_actual_contact_min": 0.39979487657547014,
+      "cut_dur_mean": 0.3333333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.45,
+      "n": 3,
+      "peak_F_mean": 3.773911952972412,
+      "peak_F_std": 0.22723199724383847,
+      "peak_F_range": [
+        3.4581458568573,
+        3.983470916748047
+      ],
+      "v_actual_contact_mean": 0.44625503942370415,
+      "v_actual_contact_min": 0.43243411928415315,
+      "cut_dur_mean": 0.3,
+      "k2_eff_at_peak_mean": 0.0
+    }
+  ]
+}

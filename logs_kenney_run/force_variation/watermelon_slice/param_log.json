@@ -1,0 +1,321 @@
+{
+  "config": "configs/fruits/watermelon_slice.yaml",
+  "seed": 42,
+  "noise_pct": 0.1,
+  "n_trials": 30,
+  "n_nominal": 3,
+  "nominal_params": {
+    "youngs_modulus": 1200000.0,
+    "poisson_ratio": 0.33,
+    "density": 950.0,
+    "yield_stress_kpa": 60.0,
+    "cutting_speed_mps_fixed": 0.3
+  },
+  "nominal_paths": [
+    "logs/force_variation/watermelon_slice/nominal_00/ee_force_fps.json",
+    "logs/force_variation/watermelon_slice/nominal_01/ee_force_fps.json",
+    "logs/force_variation/watermelon_slice/nominal_02/ee_force_fps.json"
+  ],
+  "trials": [
+    {
+      "trial": 1,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0001/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1259605.698361348,
+        "poisson_ratio": 0.3277186390306755,
+        "density": 1011.5304111195658,
+        "yield_stress_kpa": 69.13817913844815
+      }
+    },
+    {
+      "trial": 2,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0002/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1171901.5950331998,
+        "poisson_ratio": 0.32613674021033856,
+        "density": 1100.0252174732022,
+        "yield_stress_kpa": 64.60460837491746
+      }
+    },
+    {
+      "trial": 3,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0003/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1143663.0736878058,
+        "poisson_ratio": 0.3389522407191684,
+        "density": 905.9753191828161,
+        "yield_stress_kpa": 57.205621478578465
+      }
+    },
+    {
+      "trial": 4,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0004/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1229035.472587924,
+        "poisson_ratio": 0.2984308759631463,
+        "density": 786.1328059112618,
+        "yield_stress_kpa": 56.626274824554166
+      }
+    },
+    {
+      "trial": 5,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0005/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1078460.2655598691,
+        "poisson_ratio": 0.335185080987822,
+        "density": 863.737712825485,
+        "yield_stress_kpa": 51.52617779198825
+      }
+    },
+    {
+      "trial": 6,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0006/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1375877.8522705866,
+        "poisson_ratio": 0.32627469104197215,
+        "density": 956.4151794453527,
+        "yield_stress_kpa": 51.451510882719255
+      }
+    },
+    {
+      "trial": 7,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0007/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1134674.073056978,
+        "poisson_ratio": 0.3318302227302128,
+        "density": 840.6556101448812,
+        "yield_stress_kpa": 62.254188110074026
+      }
+    },
+    {
+      "trial": 8,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0008/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1127923.3572097432,
+        "poisson_ratio": 0.32518705312841095,
+        "density": 892.8378718382073,
+        "yield_stress_kpa": 71.11366910705362
+      }
+    },
+    {
+      "trial": 9,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0009/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1198380.3330314478,
+        "poisson_ratio": 0.31254776967222764,
+        "density": 1028.141766649803,
+        "yield_stress_kpa": 52.67493810017387
+      }
+    },
+    {
+      "trial": 10,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0010/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1225063.6314005707,
+        "poisson_ratio": 0.29766544295598374,
+        "density": 823.822325354649,
+        "yield_stress_kpa": 61.181167415214745
+      }
+    },
+    {
+      "trial": 11,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0011/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1288615.9895994493,
+        "poisson_ratio": 0.3328275766396345,
+        "density": 939.0134131731171,
+        "yield_stress_kpa": 58.19337782646427
+      }
+    },
+    {
+      "trial": 12,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0012/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1022577.3611559087,
+        "poisson_ratio": 0.3181225705614873,
+        "density": 906.2393167588202,
+        "yield_stress_kpa": 66.34273335731349
+      }
+    },
+    {
+      "trial": 13,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0013/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1241234.1947482154,
+        "poisson_ratio": 0.3009098374365149,
+        "density": 980.7879770925056,
+        "yield_stress_kpa": 57.6895063175021
+      }
+    },
+    {
+      "trial": 14,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0014/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1118769.359963285,
+        "poisson_ratio": 0.34009265876587436,
+        "density": 1047.9449546371152,
+        "yield_stress_kpa": 65.58768071469719
+      }
+    },
+    {
+      "trial": 15,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0015/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1099293.8972132835,
+        "poisson_ratio": 0.32489799579845496,
+        "density": 981.4700259833385,
+        "yield_stress_kpa": 65.85327076273416
+      }
+    },
+    {
+      "trial": 16,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0016/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1142499.091458565,
+        "poisson_ratio": 0.32693662688504704,
+        "density": 844.8981774694273,
+        "yield_stress_kpa": 52.82276025551597
+      }
+    },
+    {
+      "trial": 17,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0017/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1297503.098687304,
+        "poisson_ratio": 0.3523779604714186,
+        "density": 943.1590384498683,
+        "yield_stress_kpa": 66.02119738735215
+      }
+    },
+    {
+      "trial": 18,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0018/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1243396.323005716,
+        "poisson_ratio": 0.31935552404901546,
+        "density": 984.3325825232994,
+        "yield_stress_kpa": 69.22821939879582
+      }
+    },
+    {
+      "trial": 19,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0019/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1195700.8753068058,
+        "poisson_ratio": 0.35581662032093114,
+        "density": 701.1242151114743,
+        "yield_stress_kpa": 64.93141502625134
+      }
+    },
+    {
+      "trial": 20,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0020/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1210445.6481885805,
+        "poisson_ratio": 0.3250663787173132,
+        "density": 958.7172737708728,
+        "yield_stress_kpa": 48.074586512394646
+      }
+    },
+    {
+      "trial": 21,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0021/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1173639.3734594986,
+        "poisson_ratio": 0.33589235742994383,
+        "density": 1090.3999342504442,
+        "yield_stress_kpa": 56.89037869035811
+      }
+    },
+    {
+      "trial": 22,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0022/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1102980.7676528175,
+        "poisson_ratio": 0.3217210087808552,
+        "density": 1036.963201181697,
+        "yield_stress_kpa": 61.97250665795811
+      }
+    },
+    {
+      "trial": 23,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0023/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1136428.7755479554,
+        "poisson_ratio": 0.3384689126463704,
+        "density": 959.2223671880639,
+        "yield_stress_kpa": 65.81186994319734
+      }
+    },
+    {
+      "trial": 24,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0024/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1115753.6287347176,
+        "poisson_ratio": 0.32459357458113686,
+        "density": 912.749725452445,
+        "yield_stress_kpa": 51.21891031120729
+      }
+    },
+    {
+      "trial": 25,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0025/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1235534.433247749,
+        "poisson_ratio": 0.3343074119909682,
+        "density": 950.4857783810337,
+        "yield_stress_kpa": 58.59247719974912
+      }
+    },
+    {
+      "trial": 26,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0026/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1030155.5109539502,
+        "poisson_ratio": 0.3230593521743716,
+        "density": 917.4421209299569,
+        "yield_stress_kpa": 55.18633638467029
+      }
+    },
+    {
+      "trial": 27,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0027/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1180645.7146000788,
+        "poisson_ratio": 0.3366668391374399,
+        "density": 1129.1876606150004,
+        "yield_stress_kpa": 61.04746687699104
+      }
+    },
+    {
+      "trial": 28,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0028/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1230906.0468867319,
+        "poisson_ratio": 0.32877164238985823,
+        "density": 767.7167345465909,
+        "yield_stress_kpa": 59.8409167473047
+      }
+    },
+    {
+      "trial": 29,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0029/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1207227.625192923,
+        "poisson_ratio": 0.3706434948560072,
+        "density": 931.7257083457935,
+        "yield_stress_kpa": 61.80928405400167
+      }
+    },
+    {
+      "trial": 30,
+      "json_path": "logs/force_variation/watermelon_slice/trial_0030/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1195834.5876353707,
+        "poisson_ratio": 0.31071681237927773,
+        "density": 1058.568167378927,
+        "yield_stress_kpa": 64.51159819612064
+      }
+    }
+  ]
+}

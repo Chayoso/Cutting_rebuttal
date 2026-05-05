@@ -1,0 +1,35 @@
+{
+  "asset": "watermelon_slice",
+  "config": "configs/fruits/watermelon_slice.yaml",
+  "noise_pct": 0.1,
+  "seed": 42,
+  "nominal_params": {
+    "youngs_modulus": 1200000.0,
+    "poisson_ratio": 0.33,
+    "density": 950.0,
+    "yield_stress_kpa": 60.0,
+    "cutting_speed_mps_fixed": 0.3
+  },
+  "noise_trials": {
+    "n": 30,
+    "peak_F_mean": 58.17948842784446,
+    "peak_F_std": 14.043479436574838,
+    "peak_F_range": [
+      34.793052558669565,
+      107.99249267578125
+    ],
+    "cut_dur_mean": 0.44999999999999984,
+    "cut_dur_std": 1.1102230246251565e-16
+  },
+  "nominal_trials": {
+    "n": 3,
+    "peak_F_mean": 43.92291768391927,
+    "peak_F_std": 4.757601229961671,
+    "peak_F_range": [
+      39.01654815673828,
+      50.36330795288086
+    ],
+    "cut_dur_mean": 0.44999999999999996,
+    "cut_dur_std": 0.0
+  }
+}

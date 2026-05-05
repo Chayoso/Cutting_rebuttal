@@ -1,0 +1,321 @@
+{
+  "config": "configs/fruits/pineapple_slice.yaml",
+  "seed": 42,
+  "noise_pct": 0.1,
+  "n_trials": 30,
+  "n_nominal": 3,
+  "nominal_params": {
+    "youngs_modulus": 3000000.0,
+    "poisson_ratio": 0.3,
+    "density": 950.0,
+    "yield_stress_kpa": 200.0,
+    "cutting_speed_mps_fixed": 0.3
+  },
+  "nominal_paths": [
+    "logs/force_variation/pineapple_slice/nominal_00/ee_force_fps.json",
+    "logs/force_variation/pineapple_slice/nominal_01/ee_force_fps.json",
+    "logs/force_variation/pineapple_slice/nominal_02/ee_force_fps.json"
+  ],
+  "trials": [
+    {
+      "trial": 1,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0001/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 3149014.24590337,
+        "poisson_ratio": 0.29792603548243224,
+        "density": 1011.5304111195658,
+        "yield_stress_kpa": 230.4605971281605
+      }
+    },
+    {
+      "trial": 2,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0002/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 2929753.9875829993,
+        "poisson_ratio": 0.2964879456457623,
+        "density": 1100.0252174732022,
+        "yield_stress_kpa": 215.34869458305818
+      }
+    },
+    {
+      "trial": 3,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0003/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 2859157.684219514,
+        "poisson_ratio": 0.30813840065378945,
+        "density": 905.9753191828161,
+        "yield_stress_kpa": 190.68540492859486
+      }
+    },
+    {
+      "trial": 4,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0004/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 3072588.68146981,
+        "poisson_ratio": 0.27130079633013304,
+        "density": 786.1328059112618,
+        "yield_stress_kpa": 188.75424941518054
+      }
+    },
+    {
+      "trial": 5,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0005/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 2696150.6638996727,
+        "poisson_ratio": 0.3047137099889291,
+        "density": 863.737712825485,
+        "yield_stress_kpa": 171.75392597329417
+      }
+    },
+    {
+      "trial": 6,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0006/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 3439694.6306764665,
+        "poisson_ratio": 0.29661335549270196,
+        "density": 956.4151794453527,
+        "yield_stress_kpa": 171.50503627573087
+      }
+    },
+    {
+      "trial": 7,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0007/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 2836685.182642445,
+        "poisson_ratio": 0.30166383884564796,
+        "density": 840.6556101448812,
+        "yield_stress_kpa": 207.51396036691344
+      }
+    },
+    {
+      "trial": 8,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0008/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 2819808.3930243584,
+        "poisson_ratio": 0.29562459375310085,
+        "density": 892.8378718382073,
+        "yield_stress_kpa": 237.04556369017874
+      }
+    },
+    {
+      "trial": 9,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0009/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 2995950.83257862,
+        "poisson_ratio": 0.28413433606566146,
+        "density": 1028.141766649803,
+        "yield_stress_kpa": 175.58312700057957
+      }
+    },
+    {
+      "trial": 10,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0010/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 3062659.0785014266,
+        "poisson_ratio": 0.27060494814180336,
+        "density": 823.822325354649,
+        "yield_stress_kpa": 203.93722471738246
+      }
+    },
+    {
+      "trial": 11,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0011/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 3221539.9739986234,
+        "poisson_ratio": 0.3025705242178495,
+        "density": 939.0134131731171,
+        "yield_stress_kpa": 193.97792608821422
+      }
+    },
+    {
+      "trial": 12,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0012/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 2556443.402889772,
+        "poisson_ratio": 0.28920233687407937,
+        "density": 906.2393167588202,
+        "yield_stress_kpa": 221.14244452437833
+      }
+    },
+    {
+      "trial": 13,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0013/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 3103085.4868705384,
+        "poisson_ratio": 0.27355439766955897,
+        "density": 980.7879770925056,
+        "yield_stress_kpa": 192.29835439167366
+      }
+    },
+    {
+      "trial": 14,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0014/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 2796923.3999082125,
+        "poisson_ratio": 0.309175144332613,
+        "density": 1047.9449546371152,
+        "yield_stress_kpa": 218.62560238232396
+      }
+    },
+    {
+      "trial": 15,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0015/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 2748234.7430332084,
+        "poisson_ratio": 0.29536181436223174,
+        "density": 981.4700259833385,
+        "yield_stress_kpa": 219.51090254244718
+      }
+    },
+    {
+      "trial": 16,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0016/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 2856247.728646413,
+        "poisson_ratio": 0.29721511535004275,
+        "density": 844.8981774694273,
+        "yield_stress_kpa": 176.0758675183866
+      }
+    },
+    {
+      "trial": 17,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0017/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 3243757.7467182595,
+        "poisson_ratio": 0.32034360042856236,
+        "density": 943.1590384498683,
+        "yield_stress_kpa": 220.07065795784047
+      }
+    },
+    {
+      "trial": 18,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0018/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 3108490.80751429,
+        "poisson_ratio": 0.2903232036809231,
+        "density": 984.3325825232994,
+        "yield_stress_kpa": 230.7607313293194
+      }
+    },
+    {
+      "trial": 19,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0019/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 2989252.1882670145,
+        "poisson_ratio": 0.3234696548372101,
+        "density": 701.1242151114743,
+        "yield_stress_kpa": 216.4380500875045
+      }
+    },
+    {
+      "trial": 20,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0020/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 3026114.1204714514,
+        "poisson_ratio": 0.295514889743012,
+        "density": 958.7172737708728,
+        "yield_stress_kpa": 160.24862170798215
+      }
+    },
+    {
+      "trial": 21,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0021/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 2934098.4336487465,
+        "poisson_ratio": 0.30535668857267617,
+        "density": 1090.3999342504442,
+        "yield_stress_kpa": 189.63459563452705
+      }
+    },
+    {
+      "trial": 22,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0022/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 2757451.9191320436,
+        "poisson_ratio": 0.29247364434623196,
+        "density": 1036.963201181697,
+        "yield_stress_kpa": 206.5750221931937
+      }
+    },
+    {
+      "trial": 23,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0023/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 2841071.9388698884,
+        "poisson_ratio": 0.3076990114967003,
+        "density": 959.2223671880639,
+        "yield_stress_kpa": 219.3728998106578
+      }
+    },
+    {
+      "trial": 24,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0024/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 2789384.0718367943,
+        "poisson_ratio": 0.29508506780103344,
+        "density": 912.749725452445,
+        "yield_stress_kpa": 170.72970103735764
+      }
+    },
+    {
+      "trial": 25,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0025/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 3088836.083119373,
+        "poisson_ratio": 0.3039158290826983,
+        "density": 950.4857783810337,
+        "yield_stress_kpa": 195.30825733249705
+      }
+    },
+    {
+      "trial": 26,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0026/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 2575388.777384876,
+        "poisson_ratio": 0.2936903201585196,
+        "density": 917.4421209299569,
+        "yield_stress_kpa": 183.95445461556764
+      }
+    },
+    {
+      "trial": 27,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0027/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 2951614.2865001974,
+        "poisson_ratio": 0.30606076285221806,
+        "density": 1129.1876606150004,
+        "yield_stress_kpa": 203.49155625663678
+      }
+    },
+    {
+      "trial": 28,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0028/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 3077265.1172168297,
+        "poisson_ratio": 0.2988833112635075,
+        "density": 767.7167345465909,
+        "yield_stress_kpa": 199.46972249101566
+      }
+    },
+    {
+      "trial": 29,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0029/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 3018069.0629823077,
+        "poisson_ratio": 0.3369486316872793,
+        "density": 931.7257083457935,
+        "yield_stress_kpa": 206.03094684667224
+      }
+    },
+    {
+      "trial": 30,
+      "json_path": "logs/force_variation/pineapple_slice/trial_0030/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 2989586.469088427,
+        "poisson_ratio": 0.28246982943570703,
+        "density": 1058.568167378927,
+        "yield_stress_kpa": 215.03866065373546
+      }
+    }
+  ]
+}

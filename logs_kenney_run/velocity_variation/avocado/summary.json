@@ -1,0 +1,109 @@
+{
+  "asset": "avocado",
+  "config": "configs/fruits/avocado.yaml",
+  "nominal_E_Pa": 1200000.0,
+  "nominal_v_mps": 0.3,
+  "trials_per_velocity": 1,
+  "res_kq_override": null,
+  "rec_tau_override": null,
+  "rows": [
+    {
+      "v_cmd": 0.15,
+      "n": 1,
+      "peak_F_mean": 20.982254028320312,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        20.982254028320312,
+        20.982254028320312
+      ],
+      "v_actual_contact_mean": 0.14819339437540166,
+      "v_actual_contact_min": 0.09741246700286835,
+      "cut_dur_mean": 0.9000000000000011,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.2,
+      "n": 1,
+      "peak_F_mean": 18.091949462890625,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        18.091949462890625,
+        18.091949462890625
+      ],
+      "v_actual_contact_mean": 0.19997828872874363,
+      "v_actual_contact_min": 0.1998413354158397,
+      "cut_dur_mean": 0.6666666666666671,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.25,
+      "n": 1,
+      "peak_F_mean": 19.000774383544922,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        19.000774383544922,
+        19.000774383544922
+      ],
+      "v_actual_contact_mean": 0.24999294430017466,
+      "v_actual_contact_min": 0.2497370168566706,
+      "cut_dur_mean": 0.5333333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.3,
+      "n": 1,
+      "peak_F_mean": 24.02880859375,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        24.02880859375,
+        24.02880859375
+      ],
+      "v_actual_contact_mean": 0.2981539781798016,
+      "v_actual_contact_min": 0.2726572751998902,
+      "cut_dur_mean": 0.44999999999999996,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.35,
+      "n": 1,
+      "peak_F_mean": 23.776344299316406,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        23.776344299316406,
+        23.776344299316406
+      ],
+      "v_actual_contact_mean": 0.3499897726272282,
+      "v_actual_contact_min": 0.34981749951839447,
+      "cut_dur_mean": 0.3833333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.4,
+      "n": 1,
+      "peak_F_mean": 20.949520111083984,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        20.949520111083984,
+        20.949520111083984
+      ],
+      "v_actual_contact_mean": 0.3999946417752654,
+      "v_actual_contact_min": 0.39980496279895317,
+      "cut_dur_mean": 0.3333333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.45,
+      "n": 1,
+      "peak_F_mean": 24.67962074279785,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        24.67962074279785,
+        24.67962074279785
+      ],
+      "v_actual_contact_mean": 0.44811940193176275,
+      "v_actual_contact_min": 0.43130949139595043,
+      "cut_dur_mean": 0.3,
+      "k2_eff_at_peak_mean": 0.0
+    }
+  ]
+}

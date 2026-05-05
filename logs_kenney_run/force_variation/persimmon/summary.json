@@ -1,0 +1,35 @@
+{
+  "asset": "persimmon",
+  "config": "configs/fruits/persimmon.yaml",
+  "noise_pct": 0.1,
+  "seed": 42,
+  "nominal_params": {
+    "youngs_modulus": 1000000.0,
+    "poisson_ratio": 0.33,
+    "density": 970.0,
+    "yield_stress_kpa": 40.0,
+    "cutting_speed_mps_fixed": 0.3
+  },
+  "noise_trials": {
+    "n": 30,
+    "peak_F_mean": 19.911452763480344,
+    "peak_F_std": 4.306165332251558,
+    "peak_F_range": [
+      13.283133657757407,
+      30.742677512770886
+    ],
+    "cut_dur_mean": 0.44999999999999984,
+    "cut_dur_std": 1.1102230246251565e-16
+  },
+  "nominal_trials": {
+    "n": 3,
+    "peak_F_mean": 18.92541249593099,
+    "peak_F_std": 2.0789823548197353,
+    "peak_F_range": [
+      16.446868896484375,
+      21.5343074798584
+    ],
+    "cut_dur_mean": 0.44999999999999996,
+    "cut_dur_std": 0.0
+  }
+}

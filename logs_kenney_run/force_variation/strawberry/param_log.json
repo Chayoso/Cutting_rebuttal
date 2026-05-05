@@ -1,0 +1,321 @@
+{
+  "config": "configs/fruits/strawberry.yaml",
+  "seed": 42,
+  "noise_pct": 0.1,
+  "n_trials": 30,
+  "n_nominal": 3,
+  "nominal_params": {
+    "youngs_modulus": 200000.0,
+    "poisson_ratio": 0.35,
+    "density": 900.0,
+    "yield_stress_kpa": 10.0,
+    "cutting_speed_mps_fixed": 0.3
+  },
+  "nominal_paths": [
+    "logs/force_variation/strawberry/nominal_00/ee_force_fps.json",
+    "logs/force_variation/strawberry/nominal_01/ee_force_fps.json",
+    "logs/force_variation/strawberry/nominal_02/ee_force_fps.json"
+  ],
+  "trials": [
+    {
+      "trial": 1,
+      "json_path": "logs/force_variation/strawberry/trial_0001/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 209934.28306022467,
+        "poisson_ratio": 0.34758037472950426,
+        "density": 958.2919684290623,
+        "yield_stress_kpa": 11.523029856408025
+      }
+    },
+    {
+      "trial": 2,
+      "json_path": "logs/force_variation/strawberry/trial_0002/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 195316.93250553327,
+        "poisson_ratio": 0.34590260325338934,
+        "density": 1042.1291533956653,
+        "yield_stress_kpa": 10.76743472915291
+      }
+    },
+    {
+      "trial": 3,
+      "json_path": "logs/force_variation/strawberry/trial_0003/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 190610.51228130094,
+        "poisson_ratio": 0.35949480076275436,
+        "density": 858.2924076468784,
+        "yield_stress_kpa": 9.534270246429744
+      }
+    },
+    {
+      "trial": 4,
+      "json_path": "logs/force_variation/strawberry/trial_0004/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 204839.24543132068,
+        "poisson_ratio": 0.31651759571848853,
+        "density": 744.757395073827,
+        "yield_stress_kpa": 9.437712470759028
+      }
+    },
+    {
+      "trial": 5,
+      "json_path": "logs/force_variation/strawberry/trial_0005/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 179743.3775933115,
+        "poisson_ratio": 0.35549932832041725,
+        "density": 818.2778332030911,
+        "yield_stress_kpa": 8.587696298664708
+      }
+    },
+    {
+      "trial": 6,
+      "json_path": "logs/force_variation/strawberry/trial_0006/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 229312.9753784311,
+        "poisson_ratio": 0.3460489147414856,
+        "density": 906.0775384219131,
+        "yield_stress_kpa": 8.575251813786544
+      }
+    },
+    {
+      "trial": 7,
+      "json_path": "logs/force_variation/strawberry/trial_0007/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 189112.34550949634,
+        "poisson_ratio": 0.35194114531992265,
+        "density": 796.4105780319927,
+        "yield_stress_kpa": 10.375698018345672
+      }
+    },
+    {
+      "trial": 8,
+      "json_path": "logs/force_variation/strawberry/trial_0008/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 187987.22620162388,
+        "poisson_ratio": 0.34489535937861765,
+        "density": 845.8464048993543,
+        "yield_stress_kpa": 11.852278184508938
+      }
+    },
+    {
+      "trial": 9,
+      "json_path": "logs/force_variation/strawberry/trial_0009/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 199730.05550524133,
+        "poisson_ratio": 0.3314900587432717,
+        "density": 974.029042089287,
+        "yield_stress_kpa": 8.779156350028979
+      }
+    },
+    {
+      "trial": 10,
+      "json_path": "logs/force_variation/strawberry/trial_0010/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 204177.2719000951,
+        "poisson_ratio": 0.3157057728321039,
+        "density": 780.4632555991412,
+        "yield_stress_kpa": 10.196861235869124
+      }
+    },
+    {
+      "trial": 11,
+      "json_path": "logs/force_variation/strawberry/trial_0011/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 214769.33159990824,
+        "poisson_ratio": 0.35299894492082445,
+        "density": 889.5916545850583,
+        "yield_stress_kpa": 9.698896304410711
+      }
+    },
+    {
+      "trial": 12,
+      "json_path": "logs/force_variation/strawberry/trial_0012/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 170429.56019265146,
+        "poisson_ratio": 0.3374027263530926,
+        "density": 858.5425106136191,
+        "yield_stress_kpa": 11.057122226218915
+      }
+    },
+    {
+      "trial": 13,
+      "json_path": "logs/force_variation/strawberry/trial_0013/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 206872.36579136923,
+        "poisson_ratio": 0.31914679728115214,
+        "density": 929.1675572455315,
+        "yield_stress_kpa": 9.614917719583683
+      }
+    },
+    {
+      "trial": 14,
+      "json_path": "logs/force_variation/strawberry/trial_0014/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 186461.55999388083,
+        "poisson_ratio": 0.36070433505471516,
+        "density": 992.7899570246356,
+        "yield_stress_kpa": 10.931280119116199
+      }
+    },
+    {
+      "trial": 15,
+      "json_path": "logs/force_variation/strawberry/trial_0015/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 183215.64953554724,
+        "poisson_ratio": 0.34458878342260374,
+        "density": 929.8137088263207,
+        "yield_stress_kpa": 10.97554512712236
+      }
+    },
+    {
+      "trial": 16,
+      "json_path": "logs/force_variation/strawberry/trial_0016/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 190416.5152430942,
+        "poisson_ratio": 0.34675096790838317,
+        "density": 800.4298523394575,
+        "yield_stress_kpa": 8.803793375919328
+      }
+    },
+    {
+      "trial": 17,
+      "json_path": "logs/force_variation/strawberry/trial_0017/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 216250.51644788397,
+        "poisson_ratio": 0.3737342004999894,
+        "density": 893.51908905777,
+        "yield_stress_kpa": 11.003532897892024
+      }
+    },
+    {
+      "trial": 18,
+      "json_path": "logs/force_variation/strawberry/trial_0018/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 207232.72050095268,
+        "poisson_ratio": 0.3387104042944103,
+        "density": 932.5256044957573,
+        "yield_stress_kpa": 11.53803656646597
+      }
+    },
+    {
+      "trial": 19,
+      "json_path": "logs/force_variation/strawberry/trial_0019/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 199283.47921780095,
+        "poisson_ratio": 0.3773812639767451,
+        "density": 664.2229406319229,
+        "yield_stress_kpa": 10.821902504375224
+      }
+    },
+    {
+      "trial": 20,
+      "json_path": "logs/force_variation/strawberry/trial_0020/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 201740.94136476342,
+        "poisson_ratio": 0.3447673713668473,
+        "density": 908.2584698881953,
+        "yield_stress_kpa": 8.012431085399108
+      }
+    },
+    {
+      "trial": 21,
+      "json_path": "logs/force_variation/strawberry/trial_0021/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 195606.56224324976,
+        "poisson_ratio": 0.3562494700014555,
+        "density": 1033.0104640267366,
+        "yield_stress_kpa": 9.481729781726353
+      }
+    },
+    {
+      "trial": 22,
+      "json_path": "logs/force_variation/strawberry/trial_0022/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 183830.12794213626,
+        "poisson_ratio": 0.3412192517372706,
+        "density": 982.3861905931866,
+        "yield_stress_kpa": 10.328751109659684
+      }
+    },
+    {
+      "trial": 23,
+      "json_path": "logs/force_variation/strawberry/trial_0023/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 189404.7959246592,
+        "poisson_ratio": 0.3589821800794837,
+        "density": 908.7369794413237,
+        "yield_stress_kpa": 10.96864499053289
+      }
+    },
+    {
+      "trial": 24,
+      "json_path": "logs/force_variation/strawberry/trial_0024/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 185958.93812245294,
+        "poisson_ratio": 0.344265912434539,
+        "density": 864.7102662181057,
+        "yield_stress_kpa": 8.536485051867881
+      }
+    },
+    {
+      "trial": 25,
+      "json_path": "logs/force_variation/strawberry/trial_0025/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 205922.40554129152,
+        "poisson_ratio": 0.35456846726314806,
+        "density": 900.4602110978215,
+        "yield_stress_kpa": 9.765412866624853
+      }
+    },
+    {
+      "trial": 26,
+      "json_path": "logs/force_variation/strawberry/trial_0026/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 171692.58515899171,
+        "poisson_ratio": 0.3426387068516062,
+        "density": 869.1556935125907,
+        "yield_stress_kpa": 9.19772273077838
+      }
+    },
+    {
+      "trial": 27,
+      "json_path": "logs/force_variation/strawberry/trial_0027/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 196774.28576667982,
+        "poisson_ratio": 0.3570708899942544,
+        "density": 1069.7567311089479,
+        "yield_stress_kpa": 10.17457781283184
+      }
+    },
+    {
+      "trial": 28,
+      "json_path": "logs/force_variation/strawberry/trial_0028/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 205151.0078144553,
+        "poisson_ratio": 0.34869719647409203,
+        "density": 727.3105906230862,
+        "yield_stress_kpa": 9.973486124550783
+      }
+    },
+    {
+      "trial": 29,
+      "json_path": "logs/force_variation/strawberry/trial_0029/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 201204.6041988205,
+        "poisson_ratio": 0.39310673696849247,
+        "density": 882.6875131696991,
+        "yield_stress_kpa": 10.301547342333613
+      }
+    },
+    {
+      "trial": 30,
+      "json_path": "logs/force_variation/strawberry/trial_0030/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 199305.76460589512,
+        "poisson_ratio": 0.3295481343416582,
+        "density": 1002.854053306352,
+        "yield_stress_kpa": 10.751933032686773
+      }
+    }
+  ]
+}

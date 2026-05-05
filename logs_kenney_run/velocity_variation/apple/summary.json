@@ -1,0 +1,109 @@
+{
+  "asset": "apple",
+  "config": "configs/fruits/apple.yaml",
+  "nominal_E_Pa": 6500000.0,
+  "nominal_v_mps": 0.3,
+  "trials_per_velocity": 1,
+  "res_kq_override": null,
+  "rec_tau_override": null,
+  "rows": [
+    {
+      "v_cmd": 0.15,
+      "n": 1,
+      "peak_F_mean": 10.803443908691406,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        10.803443908691406,
+        10.803443908691406
+      ],
+      "v_actual_contact_mean": 0.15005185967311266,
+      "v_actual_contact_min": 0.149887315928936,
+      "cut_dur_mean": 0.4833333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.2,
+      "n": 1,
+      "peak_F_mean": 25.53891372680664,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        25.53891372680664,
+        25.53891372680664
+      ],
+      "v_actual_contact_mean": 0.20001538214273754,
+      "v_actual_contact_min": 0.19998514093458658,
+      "cut_dur_mean": 0.4833333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.25,
+      "n": 1,
+      "peak_F_mean": 37.40122985839844,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        37.40122985839844,
+        37.40122985839844
+      ],
+      "v_actual_contact_mean": 0.24996560811996457,
+      "v_actual_contact_min": 0.24988777935504913,
+      "cut_dur_mean": 0.4833333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.3,
+      "n": 1,
+      "peak_F_mean": 47.775360107421875,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        47.775360107421875,
+        47.775360107421875
+      ],
+      "v_actual_contact_mean": 0.297421857714653,
+      "v_actual_contact_min": 0.27415059506893164,
+      "cut_dur_mean": 0.44999999999999996,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.35,
+      "n": 1,
+      "peak_F_mean": 47.512752532958984,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        47.512752532958984,
+        47.512752532958984
+      ],
+      "v_actual_contact_mean": 0.34999639082413453,
+      "v_actual_contact_min": 0.34988824278116226,
+      "cut_dur_mean": 0.3833333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.4,
+      "n": 1,
+      "peak_F_mean": 43.59400177001953,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        43.59400177001953,
+        43.59400177001953
+      ],
+      "v_actual_contact_mean": 0.4000257095322013,
+      "v_actual_contact_min": 0.39997057174332445,
+      "cut_dur_mean": 0.3333333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.45,
+      "n": 1,
+      "peak_F_mean": 47.53048324584961,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        47.53048324584961,
+        47.53048324584961
+      ],
+      "v_actual_contact_mean": 0.4478254448622465,
+      "v_actual_contact_min": 0.43559711426496517,
+      "cut_dur_mean": 0.3,
+      "k2_eff_at_peak_mean": 0.0
+    }
+  ]
+}

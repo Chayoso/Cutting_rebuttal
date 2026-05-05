@@ -1,0 +1,321 @@
+{
+  "config": "configs/fruits/apple.yaml",
+  "seed": 42,
+  "noise_pct": 0.1,
+  "n_trials": 30,
+  "n_nominal": 3,
+  "nominal_params": {
+    "youngs_modulus": 6500000.0,
+    "poisson_ratio": 0.3,
+    "density": 850.0,
+    "yield_stress_kpa": 300.0,
+    "cutting_speed_mps_fixed": 0.3
+  },
+  "nominal_paths": [
+    "logs/force_variation/apple/nominal_00/ee_force_fps.json",
+    "logs/force_variation/apple/nominal_01/ee_force_fps.json",
+    "logs/force_variation/apple/nominal_02/ee_force_fps.json"
+  ],
+  "trials": [
+    {
+      "trial": 1,
+      "json_path": "logs/force_variation/apple/trial_0001/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6822864.199457302,
+        "poisson_ratio": 0.29792603548243224,
+        "density": 905.0535257385588,
+        "yield_stress_kpa": 345.69089569224076
+      }
+    },
+    {
+      "trial": 2,
+      "json_path": "logs/force_variation/apple/trial_0002/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6347800.306429831,
+        "poisson_ratio": 0.2964879456457623,
+        "density": 984.2330893181282,
+        "yield_stress_kpa": 323.0230418745873
+      }
+    },
+    {
+      "trial": 3,
+      "json_path": "logs/force_variation/apple/trial_0003/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6194841.649142281,
+        "poisson_ratio": 0.30813840065378945,
+        "density": 810.6094961109407,
+        "yield_stress_kpa": 286.0281073928923
+      }
+    },
+    {
+      "trial": 4,
+      "json_path": "logs/force_variation/apple/trial_0004/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6657275.476517922,
+        "poisson_ratio": 0.27130079633013304,
+        "density": 703.3819842363922,
+        "yield_stress_kpa": 283.1313741227708
+      }
+    },
+    {
+      "trial": 5,
+      "json_path": "logs/force_variation/apple/trial_0005/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 5841659.771782625,
+        "poisson_ratio": 0.3047137099889291,
+        "density": 772.817953580697,
+        "yield_stress_kpa": 257.6308889599413
+      }
+    },
+    {
+      "trial": 6,
+      "json_path": "logs/force_variation/apple/trial_0006/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 7452671.6997990105,
+        "poisson_ratio": 0.29661335549270196,
+        "density": 855.7398973984734,
+        "yield_stress_kpa": 257.25755441359627
+      }
+    },
+    {
+      "trial": 7,
+      "json_path": "logs/force_variation/apple/trial_0007/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6146151.229058631,
+        "poisson_ratio": 0.30166383884564796,
+        "density": 752.1655459191043,
+        "yield_stress_kpa": 311.27094055037014
+      }
+    },
+    {
+      "trial": 8,
+      "json_path": "logs/force_variation/apple/trial_0008/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6109584.851552776,
+        "poisson_ratio": 0.29562459375310085,
+        "density": 798.8549379605013,
+        "yield_stress_kpa": 355.5683455352681
+      }
+    },
+    {
+      "trial": 9,
+      "json_path": "logs/force_variation/apple/trial_0009/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6491226.803920343,
+        "poisson_ratio": 0.28413433606566146,
+        "density": 919.9163175287711,
+        "yield_stress_kpa": 263.37469050086935
+      }
+    },
+    {
+      "trial": 10,
+      "json_path": "logs/force_variation/apple/trial_0010/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6635761.336753091,
+        "poisson_ratio": 0.27060494814180336,
+        "density": 737.1041858436333,
+        "yield_stress_kpa": 305.9058370760737
+      }
+    },
+    {
+      "trial": 11,
+      "json_path": "logs/force_variation/apple/trial_0011/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6980003.276997018,
+        "poisson_ratio": 0.3025705242178495,
+        "density": 840.1698959969996,
+        "yield_stress_kpa": 290.96688913232134
+      }
+    },
+    {
+      "trial": 12,
+      "json_path": "logs/force_variation/apple/trial_0012/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 5538960.706261172,
+        "poisson_ratio": 0.28920233687407937,
+        "density": 810.8457044684181,
+        "yield_stress_kpa": 331.7136667865675
+      }
+    },
+    {
+      "trial": 13,
+      "json_path": "logs/force_variation/apple/trial_0013/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6723351.8882195,
+        "poisson_ratio": 0.27355439766955897,
+        "density": 877.5471373985575,
+        "yield_stress_kpa": 288.4475315875105
+      }
+    },
+    {
+      "trial": 14,
+      "json_path": "logs/force_variation/apple/trial_0014/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6060000.699801127,
+        "poisson_ratio": 0.309175144332613,
+        "density": 937.6349594121558,
+        "yield_stress_kpa": 327.9384035734859
+      }
+    },
+    {
+      "trial": 15,
+      "json_path": "logs/force_variation/apple/trial_0015/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 5954508.609905285,
+        "poisson_ratio": 0.29536181436223174,
+        "density": 878.1573916693029,
+        "yield_stress_kpa": 329.2663538136708
+      }
+    },
+    {
+      "trial": 16,
+      "json_path": "logs/force_variation/apple/trial_0016/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6188536.745400561,
+        "poisson_ratio": 0.29721511535004275,
+        "density": 755.9615272094876,
+        "yield_stress_kpa": 264.11380127757985
+      }
+    },
+    {
+      "trial": 17,
+      "json_path": "logs/force_variation/apple/trial_0017/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 7028141.78455623,
+        "poisson_ratio": 0.32034360042856236,
+        "density": 843.8791396656717,
+        "yield_stress_kpa": 330.1059869367607
+      }
+    },
+    {
+      "trial": 18,
+      "json_path": "logs/force_variation/apple/trial_0018/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6735063.416280962,
+        "poisson_ratio": 0.2903232036809231,
+        "density": 880.7186264682152,
+        "yield_stress_kpa": 346.1410969939791
+      }
+    },
+    {
+      "trial": 19,
+      "json_path": "logs/force_variation/apple/trial_0019/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6476713.074578531,
+        "poisson_ratio": 0.3234696548372101,
+        "density": 627.3216661523717,
+        "yield_stress_kpa": 324.65707513125676
+      }
+    },
+    {
+      "trial": 20,
+      "json_path": "logs/force_variation/apple/trial_0020/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6556580.594354811,
+        "poisson_ratio": 0.295514889743012,
+        "density": 857.7996660055178,
+        "yield_stress_kpa": 240.37293256197324
+      }
+    },
+    {
+      "trial": 21,
+      "json_path": "logs/force_variation/apple/trial_0021/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6357213.272905618,
+        "poisson_ratio": 0.30535668857267617,
+        "density": 975.6209938030289,
+        "yield_stress_kpa": 284.45189345179057
+      }
+    },
+    {
+      "trial": 22,
+      "json_path": "logs/force_variation/apple/trial_0022/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 5974479.158119428,
+        "poisson_ratio": 0.29247364434623196,
+        "density": 927.8091800046763,
+        "yield_stress_kpa": 309.8625332897905
+      }
+    },
+    {
+      "trial": 23,
+      "json_path": "logs/force_variation/apple/trial_0023/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6155655.867551425,
+        "poisson_ratio": 0.3076990114967003,
+        "density": 858.2515916945836,
+        "yield_stress_kpa": 329.0593497159867
+      }
+    },
+    {
+      "trial": 24,
+      "json_path": "logs/force_variation/apple/trial_0024/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6043665.4889797205,
+        "poisson_ratio": 0.29508506780103344,
+        "density": 816.6708069837666,
+        "yield_stress_kpa": 256.09455155603644
+      }
+    },
+    {
+      "trial": 25,
+      "json_path": "logs/force_variation/apple/trial_0025/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6692478.180091974,
+        "poisson_ratio": 0.3039158290826983,
+        "density": 850.4346438146091,
+        "yield_stress_kpa": 292.9623859987456
+      }
+    },
+    {
+      "trial": 26,
+      "json_path": "logs/force_variation/apple/trial_0026/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 5580009.01766723,
+        "poisson_ratio": 0.2936903201585196,
+        "density": 820.8692660952246,
+        "yield_stress_kpa": 275.93168192335145
+      }
+    },
+    {
+      "trial": 27,
+      "json_path": "logs/force_variation/apple/trial_0027/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6395164.287417094,
+        "poisson_ratio": 0.30606076285221806,
+        "density": 1010.3258016028951,
+        "yield_stress_kpa": 305.2373343849552
+      }
+    },
+    {
+      "trial": 28,
+      "json_path": "logs/force_variation/apple/trial_0028/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6667407.753969797,
+        "poisson_ratio": 0.2988833112635075,
+        "density": 686.9044466995814,
+        "yield_stress_kpa": 299.2045837365235
+      }
+    },
+    {
+      "trial": 29,
+      "json_path": "logs/force_variation/apple/trial_0029/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6539149.636461667,
+        "poisson_ratio": 0.3369486316872793,
+        "density": 833.6493179936047,
+        "yield_stress_kpa": 309.04642027000835
+      }
+    },
+    {
+      "trial": 30,
+      "json_path": "logs/force_variation/apple/trial_0030/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6477437.349691592,
+        "poisson_ratio": 0.28246982943570703,
+        "density": 947.1399392337768,
+        "yield_stress_kpa": 322.5579909806032
+      }
+    }
+  ]
+}

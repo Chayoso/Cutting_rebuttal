@@ -1,0 +1,35 @@
+{
+  "asset": "banana",
+  "config": "configs/fruits/banana.yaml",
+  "noise_pct": 0.1,
+  "seed": 42,
+  "nominal_params": {
+    "youngs_modulus": 7000.0,
+    "poisson_ratio": 0.35,
+    "density": 960.0,
+    "yield_stress_kpa": 5.0,
+    "cutting_speed_mps_fixed": 0.3
+  },
+  "noise_trials": {
+    "n": 30,
+    "peak_F_mean": 5.572146046185541,
+    "peak_F_std": 0.5683867926010406,
+    "peak_F_range": [
+      4.19844645823171,
+      6.65460415784725
+    ],
+    "cut_dur_mean": 0.44999999999999984,
+    "cut_dur_std": 1.1102230246251565e-16
+  },
+  "nominal_trials": {
+    "n": 3,
+    "peak_F_mean": 5.6272149085998535,
+    "peak_F_std": 0.00015603920739228766,
+    "peak_F_range": [
+      5.627015590667725,
+      5.627396583557129
+    ],
+    "cut_dur_mean": 0.44999999999999996,
+    "cut_dur_std": 0.0
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "asset": "peach",
+  "config": "configs/fruits/peach.yaml",
+  "noise_pct": 0.1,
+  "seed": 42,
+  "nominal_params": {
+    "youngs_modulus": 1200000.0,
+    "poisson_ratio": 0.33,
+    "density": 980.0,
+    "yield_stress_kpa": 50.0,
+    "cutting_speed_mps_fixed": 0.3
+  },
+  "noise_trials": {
+    "n": 30,
+    "peak_F_mean": 10.19210285805987,
+    "peak_F_std": 1.689952568250937,
+    "peak_F_range": [
+      8.216724711095164,
+      16.934291113354625
+    ],
+    "cut_dur_mean": 0.44999999999999984,
+    "cut_dur_std": 1.1102230246251565e-16
+  },
+  "nominal_trials": {
+    "n": 3,
+    "peak_F_mean": 11.220898946126303,
+    "peak_F_std": 2.5735523007779344,
+    "peak_F_range": [
+      9.390236854553223,
+      14.860429763793945
+    ],
+    "cut_dur_mean": 0.44999999999999996,
+    "cut_dur_std": 0.0
+  }
+}

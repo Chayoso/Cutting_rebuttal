@@ -1,0 +1,321 @@
+{
+  "config": "configs/fruits/banana.yaml",
+  "seed": 42,
+  "noise_pct": 0.1,
+  "n_trials": 30,
+  "n_nominal": 3,
+  "nominal_params": {
+    "youngs_modulus": 7000.0,
+    "poisson_ratio": 0.35,
+    "density": 960.0,
+    "yield_stress_kpa": 5.0,
+    "cutting_speed_mps_fixed": 0.3
+  },
+  "nominal_paths": [
+    "logs/force_variation/banana/nominal_00/ee_force_fps.json",
+    "logs/force_variation/banana/nominal_01/ee_force_fps.json",
+    "logs/force_variation/banana/nominal_02/ee_force_fps.json"
+  ],
+  "trials": [
+    {
+      "trial": 1,
+      "json_path": "logs/force_variation/banana/trial_0001/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 7347.699907107863,
+        "poisson_ratio": 0.34758037472950426,
+        "density": 1022.1780996576665,
+        "yield_stress_kpa": 5.761514928204012
+      }
+    },
+    {
+      "trial": 2,
+      "json_path": "logs/force_variation/banana/trial_0002/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6836.092637693665,
+        "poisson_ratio": 0.34590260325338934,
+        "density": 1111.6044302887096,
+        "yield_stress_kpa": 5.383717364576455
+      }
+    },
+    {
+      "trial": 3,
+      "json_path": "logs/force_variation/banana/trial_0003/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6671.367929845534,
+        "poisson_ratio": 0.35949480076275436,
+        "density": 915.5119014900037,
+        "yield_stress_kpa": 4.767135123214872
+      }
+    },
+    {
+      "trial": 4,
+      "json_path": "logs/force_variation/banana/trial_0004/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 7169.373590096224,
+        "poisson_ratio": 0.31651759571848853,
+        "density": 794.4078880787488,
+        "yield_stress_kpa": 4.718856235379514
+      }
+    },
+    {
+      "trial": 5,
+      "json_path": "logs/force_variation/banana/trial_0005/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6291.018215765903,
+        "poisson_ratio": 0.35549932832041725,
+        "density": 872.8296887499638,
+        "yield_stress_kpa": 4.293848149332354
+      }
+    },
+    {
+      "trial": 6,
+      "json_path": "logs/force_variation/banana/trial_0006/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 8025.954138245088,
+        "poisson_ratio": 0.3460489147414856,
+        "density": 966.4827076500407,
+        "yield_stress_kpa": 4.287625906893272
+      }
+    },
+    {
+      "trial": 7,
+      "json_path": "logs/force_variation/banana/trial_0007/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6618.932092832371,
+        "poisson_ratio": 0.35194114531992265,
+        "density": 849.5046165674589,
+        "yield_stress_kpa": 5.187849009172836
+      }
+    },
+    {
+      "trial": 8,
+      "json_path": "logs/force_variation/banana/trial_0008/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6579.552917056836,
+        "poisson_ratio": 0.34489535937861765,
+        "density": 902.2361652259779,
+        "yield_stress_kpa": 5.926139092254469
+      }
+    },
+    {
+      "trial": 9,
+      "json_path": "logs/force_variation/banana/trial_0009/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6990.551942683446,
+        "poisson_ratio": 0.3314900587432717,
+        "density": 1038.9643115619062,
+        "yield_stress_kpa": 4.389578175014489
+      }
+    },
+    {
+      "trial": 10,
+      "json_path": "logs/force_variation/banana/trial_0010/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 7146.204516503329,
+        "poisson_ratio": 0.3157057728321039,
+        "density": 832.4941393057507,
+        "yield_stress_kpa": 5.098430617934562
+      }
+    },
+    {
+      "trial": 11,
+      "json_path": "logs/force_variation/banana/trial_0011/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 7516.926605996788,
+        "poisson_ratio": 0.35299894492082445,
+        "density": 948.8977648907289,
+        "yield_stress_kpa": 4.849448152205356
+      }
+    },
+    {
+      "trial": 12,
+      "json_path": "logs/force_variation/banana/trial_0012/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 5965.034606742801,
+        "poisson_ratio": 0.3374027263530926,
+        "density": 915.7786779878604,
+        "yield_stress_kpa": 5.528561113109458
+      }
+    },
+    {
+      "trial": 13,
+      "json_path": "logs/force_variation/banana/trial_0013/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 7240.532802697923,
+        "poisson_ratio": 0.31914679728115214,
+        "density": 991.1120610619004,
+        "yield_stress_kpa": 4.807458859791842
+      }
+    },
+    {
+      "trial": 14,
+      "json_path": "logs/force_variation/banana/trial_0014/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6526.154599785829,
+        "poisson_ratio": 0.36070433505471516,
+        "density": 1058.9759541596113,
+        "yield_stress_kpa": 5.465640059558099
+      }
+    },
+    {
+      "trial": 15,
+      "json_path": "logs/force_variation/banana/trial_0015/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6412.547733744153,
+        "poisson_ratio": 0.34458878342260374,
+        "density": 991.8012894147421,
+        "yield_stress_kpa": 5.48777256356118
+      }
+    },
+    {
+      "trial": 16,
+      "json_path": "logs/force_variation/banana/trial_0016/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6664.578033508297,
+        "poisson_ratio": 0.34675096790838317,
+        "density": 853.7918424954213,
+        "yield_stress_kpa": 4.401896687959664
+      }
+    },
+    {
+      "trial": 17,
+      "json_path": "logs/force_variation/banana/trial_0017/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 7568.768075675939,
+        "poisson_ratio": 0.3737342004999894,
+        "density": 953.0870283282879,
+        "yield_stress_kpa": 5.501766448946012
+      }
+    },
+    {
+      "trial": 18,
+      "json_path": "logs/force_variation/banana/trial_0018/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 7253.145217533343,
+        "poisson_ratio": 0.3387104042944103,
+        "density": 994.6939781288078,
+        "yield_stress_kpa": 5.769018283232985
+      }
+    },
+    {
+      "trial": 19,
+      "json_path": "logs/force_variation/banana/trial_0019/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6974.921772623034,
+        "poisson_ratio": 0.3773812639767451,
+        "density": 708.5044700073845,
+        "yield_stress_kpa": 5.410951252187612
+      }
+    },
+    {
+      "trial": 20,
+      "json_path": "logs/force_variation/banana/trial_0020/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 7060.93294776672,
+        "poisson_ratio": 0.3447673713668473,
+        "density": 968.8090345474084,
+        "yield_stress_kpa": 4.006215542699554
+      }
+    },
+    {
+      "trial": 21,
+      "json_path": "logs/force_variation/banana/trial_0021/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6846.229678513742,
+        "poisson_ratio": 0.3562494700014555,
+        "density": 1101.8778282951855,
+        "yield_stress_kpa": 4.740864890863176
+      }
+    },
+    {
+      "trial": 22,
+      "json_path": "logs/force_variation/banana/trial_0022/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6434.054477974769,
+        "poisson_ratio": 0.3412192517372706,
+        "density": 1047.878603299399,
+        "yield_stress_kpa": 5.164375554829842
+      }
+    },
+    {
+      "trial": 23,
+      "json_path": "logs/force_variation/banana/trial_0023/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6629.1678573630725,
+        "poisson_ratio": 0.3589821800794837,
+        "density": 969.3194447374119,
+        "yield_stress_kpa": 5.484322495266445
+      }
+    },
+    {
+      "trial": 24,
+      "json_path": "logs/force_variation/banana/trial_0024/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6508.562834285853,
+        "poisson_ratio": 0.344265912434539,
+        "density": 922.3576172993128,
+        "yield_stress_kpa": 4.268242525933941
+      }
+    },
+    {
+      "trial": 25,
+      "json_path": "logs/force_variation/banana/trial_0025/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 7207.284193945203,
+        "poisson_ratio": 0.35456846726314806,
+        "density": 960.4908918376761,
+        "yield_stress_kpa": 4.882706433312427
+      }
+    },
+    {
+      "trial": 26,
+      "json_path": "logs/force_variation/banana/trial_0026/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6009.240480564709,
+        "poisson_ratio": 0.3426387068516062,
+        "density": 927.0994064134301,
+        "yield_stress_kpa": 4.59886136538919
+      }
+    },
+    {
+      "trial": 27,
+      "json_path": "logs/force_variation/banana/trial_0027/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6887.100001833794,
+        "poisson_ratio": 0.3570708899942544,
+        "density": 1141.073846516211,
+        "yield_stress_kpa": 5.08728890641592
+      }
+    },
+    {
+      "trial": 28,
+      "json_path": "logs/force_variation/banana/trial_0028/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 7180.285273505935,
+        "poisson_ratio": 0.34869719647409203,
+        "density": 775.797963331292,
+        "yield_stress_kpa": 4.986743062275392
+      }
+    },
+    {
+      "trial": 29,
+      "json_path": "logs/force_variation/banana/trial_0029/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 7042.161146958718,
+        "poisson_ratio": 0.39310673696849247,
+        "density": 941.5333473810123,
+        "yield_stress_kpa": 5.150773671166807
+      }
+    },
+    {
+      "trial": 30,
+      "json_path": "logs/force_variation/banana/trial_0030/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 6975.701761206329,
+        "poisson_ratio": 0.3295481343416582,
+        "density": 1069.710990193442,
+        "yield_stress_kpa": 5.375966516343387
+      }
+    }
+  ]
+}

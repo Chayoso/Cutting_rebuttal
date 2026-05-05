@@ -1,0 +1,109 @@
+{
+  "asset": "orange",
+  "config": "configs/fruits/orange.yaml",
+  "nominal_E_Pa": 1200000.0,
+  "nominal_v_mps": 0.3,
+  "trials_per_velocity": 1,
+  "res_kq_override": null,
+  "rec_tau_override": null,
+  "rows": [
+    {
+      "v_cmd": 0.15,
+      "n": 1,
+      "peak_F_mean": 15.68564224243164,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        15.68564224243164,
+        15.68564224243164
+      ],
+      "v_actual_contact_mean": 0.14901030470024426,
+      "v_actual_contact_min": 0.12803055346012077,
+      "cut_dur_mean": 0.9000000000000011,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.2,
+      "n": 1,
+      "peak_F_mean": 20.287857055664062,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        20.287857055664062,
+        20.287857055664062
+      ],
+      "v_actual_contact_mean": 0.20000995602458693,
+      "v_actual_contact_min": 0.19988609477877559,
+      "cut_dur_mean": 0.6666666666666671,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.25,
+      "n": 1,
+      "peak_F_mean": 15.477211952209473,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        15.477211952209473,
+        15.477211952209473
+      ],
+      "v_actual_contact_mean": 0.24997766688466067,
+      "v_actual_contact_min": 0.2498327940702434,
+      "cut_dur_mean": 0.5333333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.3,
+      "n": 1,
+      "peak_F_mean": 20.99044418334961,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        20.99044418334961,
+        20.99044418334961
+      ],
+      "v_actual_contact_mean": 0.29782022842589545,
+      "v_actual_contact_min": 0.27518548071384435,
+      "cut_dur_mean": 0.44999999999999996,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.35,
+      "n": 1,
+      "peak_F_mean": 15.570581436157227,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        15.570581436157227,
+        15.570581436157227
+      ],
+      "v_actual_contact_mean": 0.3500166575291327,
+      "v_actual_contact_min": 0.34982579585630424,
+      "cut_dur_mean": 0.3833333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.4,
+      "n": 1,
+      "peak_F_mean": 18.290889739990234,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        18.290889739990234,
+        18.290889739990234
+      ],
+      "v_actual_contact_mean": 0.39997627385533774,
+      "v_actual_contact_min": 0.3998004086315633,
+      "cut_dur_mean": 0.3333333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.45,
+      "n": 1,
+      "peak_F_mean": 19.72159194946289,
+      "peak_F_std": 0.0,
+      "peak_F_range": [
+        19.72159194946289,
+        19.72159194946289
+      ],
+      "v_actual_contact_mean": 0.4477831670506434,
+      "v_actual_contact_min": 0.4337589070200921,
+      "cut_dur_mean": 0.3,
+      "k2_eff_at_peak_mean": 0.0
+    }
+  ]
+}

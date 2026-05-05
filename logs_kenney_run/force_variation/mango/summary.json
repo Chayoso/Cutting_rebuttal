@@ -1,0 +1,35 @@
+{
+  "asset": "mango",
+  "config": "configs/fruits/mango.yaml",
+  "noise_pct": 0.1,
+  "seed": 42,
+  "nominal_params": {
+    "youngs_modulus": 1800000.0,
+    "poisson_ratio": 0.33,
+    "density": 1000.0,
+    "yield_stress_kpa": 80.0,
+    "cutting_speed_mps_fixed": 0.3
+  },
+  "noise_trials": {
+    "n": 30,
+    "peak_F_mean": 18.2795629749795,
+    "peak_F_std": 2.9245048150997364,
+    "peak_F_range": [
+      14.982993756601948,
+      26.06055257411183
+    ],
+    "cut_dur_mean": 0.44999999999999984,
+    "cut_dur_std": 1.1102230246251565e-16
+  },
+  "nominal_trials": {
+    "n": 3,
+    "peak_F_mean": 22.29631233215332,
+    "peak_F_std": 3.7542441134121507,
+    "peak_F_range": [
+      19.165719985961914,
+      27.575241088867188
+    ],
+    "cut_dur_mean": 0.44999999999999996,
+    "cut_dur_std": 0.0
+  }
+}

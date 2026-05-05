@@ -1,0 +1,35 @@
+{
+  "asset": "tomato",
+  "config": "configs/fruits/tomato.yaml",
+  "noise_pct": 0.1,
+  "seed": 42,
+  "nominal_params": {
+    "youngs_modulus": 650000.0,
+    "poisson_ratio": 0.33,
+    "density": 950.0,
+    "yield_stress_kpa": 30.0,
+    "cutting_speed_mps_fixed": 0.3
+  },
+  "noise_trials": {
+    "n": 30,
+    "peak_F_mean": 10.967605005715315,
+    "peak_F_std": 2.594843494895842,
+    "peak_F_range": [
+      6.7642813053780895,
+      18.860290794907677
+    ],
+    "cut_dur_mean": 0.44999999999999984,
+    "cut_dur_std": 1.1102230246251565e-16
+  },
+  "nominal_trials": {
+    "n": 3,
+    "peak_F_mean": 10.438681284586588,
+    "peak_F_std": 1.1288988485611662,
+    "peak_F_range": [
+      8.915510177612305,
+      11.614490509033203
+    ],
+    "cut_dur_mean": 0.44999999999999996,
+    "cut_dur_std": 0.0
+  }
+}

@@ -1,0 +1,321 @@
+{
+  "config": "configs/fruits/avocado.yaml",
+  "seed": 42,
+  "noise_pct": 0.1,
+  "n_trials": 30,
+  "n_nominal": 3,
+  "nominal_params": {
+    "youngs_modulus": 1200000.0,
+    "poisson_ratio": 0.33,
+    "density": 980.0,
+    "yield_stress_kpa": 50.0,
+    "cutting_speed_mps_fixed": 0.3
+  },
+  "nominal_paths": [
+    "logs/force_variation/avocado/nominal_00/ee_force_fps.json",
+    "logs/force_variation/avocado/nominal_01/ee_force_fps.json",
+    "logs/force_variation/avocado/nominal_02/ee_force_fps.json"
+  ],
+  "trials": [
+    {
+      "trial": 1,
+      "json_path": "logs/force_variation/avocado/trial_0001/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1259605.698361348,
+        "poisson_ratio": 0.3277186390306755,
+        "density": 1043.4734767338678,
+        "yield_stress_kpa": 57.61514928204012
+      }
+    },
+    {
+      "trial": 2,
+      "json_path": "logs/force_variation/avocado/trial_0002/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1171901.5950331998,
+        "poisson_ratio": 0.32613674021033856,
+        "density": 1134.7628559197244,
+        "yield_stress_kpa": 53.837173645764544
+      }
+    },
+    {
+      "trial": 3,
+      "json_path": "logs/force_variation/avocado/trial_0003/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1143663.0736878058,
+        "poisson_ratio": 0.3389522407191684,
+        "density": 934.5850661043787,
+        "yield_stress_kpa": 47.671351232148716
+      }
+    },
+    {
+      "trial": 4,
+      "json_path": "logs/force_variation/avocado/trial_0004/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1229035.472587924,
+        "poisson_ratio": 0.2984308759631463,
+        "density": 810.9580524137227,
+        "yield_stress_kpa": 47.188562353795135
+      }
+    },
+    {
+      "trial": 5,
+      "json_path": "logs/force_variation/avocado/trial_0005/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1078460.2655598691,
+        "poisson_ratio": 0.335185080987822,
+        "density": 891.0136405989214,
+        "yield_stress_kpa": 42.93848149332354
+      }
+    },
+    {
+      "trial": 6,
+      "json_path": "logs/force_variation/avocado/trial_0006/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1375877.8522705866,
+        "poisson_ratio": 0.32627469104197215,
+        "density": 986.6177640594165,
+        "yield_stress_kpa": 42.87625906893272
+      }
+    },
+    {
+      "trial": 7,
+      "json_path": "logs/force_variation/avocado/trial_0007/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1134674.073056978,
+        "poisson_ratio": 0.3318302227302128,
+        "density": 867.2026294126142,
+        "yield_stress_kpa": 51.87849009172836
+      }
+    },
+    {
+      "trial": 8,
+      "json_path": "logs/force_variation/avocado/trial_0008/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1127923.3572097432,
+        "poisson_ratio": 0.32518705312841095,
+        "density": 921.0327520015192,
+        "yield_stress_kpa": 59.261390922544685
+      }
+    },
+    {
+      "trial": 9,
+      "json_path": "logs/force_variation/avocado/trial_0009/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1198380.3330314478,
+        "poisson_ratio": 0.31254776967222764,
+        "density": 1060.6094013861125,
+        "yield_stress_kpa": 43.89578175014489
+      }
+    },
+    {
+      "trial": 10,
+      "json_path": "logs/force_variation/avocado/trial_0010/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1225063.6314005707,
+        "poisson_ratio": 0.29766544295598374,
+        "density": 849.8377672079538,
+        "yield_stress_kpa": 50.984306179345616
+      }
+    },
+    {
+      "trial": 11,
+      "json_path": "logs/force_variation/avocado/trial_0011/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1288615.9895994493,
+        "poisson_ratio": 0.3328275766396345,
+        "density": 968.6664683259523,
+        "yield_stress_kpa": 48.494481522053555
+      }
+    },
+    {
+      "trial": 12,
+      "json_path": "logs/force_variation/avocado/trial_0012/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1022577.3611559087,
+        "poisson_ratio": 0.3181225705614873,
+        "density": 934.8574004459409,
+        "yield_stress_kpa": 55.28561113109458
+      }
+    },
+    {
+      "trial": 13,
+      "json_path": "logs/force_variation/avocado/trial_0013/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1241234.1947482154,
+        "poisson_ratio": 0.3009098374365149,
+        "density": 1011.76022900069,
+        "yield_stress_kpa": 48.074588597918414
+      }
+    },
+    {
+      "trial": 14,
+      "json_path": "logs/force_variation/avocado/trial_0014/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1118769.359963285,
+        "poisson_ratio": 0.34009265876587436,
+        "density": 1081.0379532046031,
+        "yield_stress_kpa": 54.65640059558099
+      }
+    },
+    {
+      "trial": 15,
+      "json_path": "logs/force_variation/avocado/trial_0015/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1099293.8972132835,
+        "poisson_ratio": 0.32489799579845496,
+        "density": 1012.4638162775492,
+        "yield_stress_kpa": 54.877725635611796
+      }
+    },
+    {
+      "trial": 16,
+      "json_path": "logs/force_variation/avocado/trial_0016/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1142499.091458565,
+        "poisson_ratio": 0.32693662688504704,
+        "density": 871.5791725474093,
+        "yield_stress_kpa": 44.01896687959665
+      }
+    },
+    {
+      "trial": 17,
+      "json_path": "logs/force_variation/avocado/trial_0017/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1297503.098687304,
+        "poisson_ratio": 0.3523779604714186,
+        "density": 972.9430080851273,
+        "yield_stress_kpa": 55.01766448946012
+      }
+    },
+    {
+      "trial": 18,
+      "json_path": "logs/force_variation/avocado/trial_0018/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1243396.323005716,
+        "poisson_ratio": 0.31935552404901546,
+        "density": 1015.4167693398247,
+        "yield_stress_kpa": 57.69018283232985
+      }
+    },
+    {
+      "trial": 19,
+      "json_path": "logs/force_variation/avocado/trial_0019/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1195700.8753068058,
+        "poisson_ratio": 0.35581662032093114,
+        "density": 723.264979799205,
+        "yield_stress_kpa": 54.10951252187613
+      }
+    },
+    {
+      "trial": 20,
+      "json_path": "logs/force_variation/avocado/trial_0020/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1210445.6481885805,
+        "poisson_ratio": 0.3250663787173132,
+        "density": 988.9925561004793,
+        "yield_stress_kpa": 40.06215542699554
+      }
+    },
+    {
+      "trial": 21,
+      "json_path": "logs/force_variation/avocado/trial_0021/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1173639.3734594986,
+        "poisson_ratio": 0.33589235742994383,
+        "density": 1124.8336163846686,
+        "yield_stress_kpa": 47.40864890863176
+      }
+    },
+    {
+      "trial": 22,
+      "json_path": "logs/force_variation/avocado/trial_0022/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1102980.7676528175,
+        "poisson_ratio": 0.3217210087808552,
+        "density": 1069.7094075348032,
+        "yield_stress_kpa": 51.64375554829842
+      }
+    },
+    {
+      "trial": 23,
+      "json_path": "logs/force_variation/avocado/trial_0023/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1136428.7755479554,
+        "poisson_ratio": 0.3384689126463704,
+        "density": 989.513599836108,
+        "yield_stress_kpa": 54.84322495266445
+      }
+    },
+    {
+      "trial": 24,
+      "json_path": "logs/force_variation/avocado/trial_0024/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1115753.6287347176,
+        "poisson_ratio": 0.32459357458113686,
+        "density": 941.5734009930485,
+        "yield_stress_kpa": 42.68242525933941
+      }
+    },
+    {
+      "trial": 25,
+      "json_path": "logs/force_variation/avocado/trial_0025/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1235534.433247749,
+        "poisson_ratio": 0.3343074119909682,
+        "density": 980.5011187509612,
+        "yield_stress_kpa": 48.82706433312426
+      }
+    },
+    {
+      "trial": 26,
+      "json_path": "logs/force_variation/avocado/trial_0026/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1030155.5109539502,
+        "poisson_ratio": 0.3230593521743716,
+        "density": 946.4139773803765,
+        "yield_stress_kpa": 45.98861365389191
+      }
+    },
+    {
+      "trial": 27,
+      "json_path": "logs/force_variation/avocado/trial_0027/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1180645.7146000788,
+        "poisson_ratio": 0.3366668391374399,
+        "density": 1164.846218318632,
+        "yield_stress_kpa": 50.872889064159196
+      }
+    },
+    {
+      "trial": 28,
+      "json_path": "logs/force_variation/avocado/trial_0028/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1230906.0468867319,
+        "poisson_ratio": 0.32877164238985823,
+        "density": 791.9604209006939,
+        "yield_stress_kpa": 49.867430622753915
+      }
+    },
+    {
+      "trial": 29,
+      "json_path": "logs/force_variation/avocado/trial_0029/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1207227.625192923,
+        "poisson_ratio": 0.3706434948560072,
+        "density": 961.14862545145,
+        "yield_stress_kpa": 51.50773671166806
+      }
+    },
+    {
+      "trial": 30,
+      "json_path": "logs/force_variation/avocado/trial_0030/ee_force_fps.json",
+      "params": {
+        "youngs_modulus": 1195834.5876353707,
+        "poisson_ratio": 0.31071681237927773,
+        "density": 1091.996635822472,
+        "yield_stress_kpa": 53.759665163433866
+      }
+    }
+  ]
+}
