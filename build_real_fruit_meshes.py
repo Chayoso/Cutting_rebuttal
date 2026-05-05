@@ -55,8 +55,15 @@ FBX_SOURCES = {
                          "Pineapple0.fbx", "horizontal_slice"),
     "strawberry":       ("uploads_files_3935237_Strawberry_FBX",
                          "Strawberry_Model_1.fbx"),
-    "tomato":           ("uploads_files_3935237_Rockit+1_Apple_Model+FBX",
-                         "FBX/1_Apple_Model.fbx"),
+    # tomato uses a directly provided OBJ at ~/Desktop/assets/tomato.obj
+    "tomato":           (None, "tomato.obj", "direct_obj"),
+    # New fruits (not in original 14-fruit set) — added for friction sweep
+    "plum":             ("uploads_files_3935237_Red+plum+FBX",
+                         "FBX/Red plum_Model_1.fbx"),
+    "cherry":           ("uploads_files_3935237_Cherry+FBX",
+                         "FBX/Cherry_Model_1.fbx"),
+    "golden_strawberry":("uploads_files_3935237_Golden+Strawberry+FBX",
+                         "Golden Strawberry model+textures/Golden strawberry_Whole_high poly.fbx"),
     "watermelon_slice": ("uploads_files_3935237_Watermelon+FBX",
                          "FBX/Watermelon_Model.fbx", "horizontal_slice"),
 }
@@ -77,6 +84,9 @@ TARGET_XZ = {
     "strawberry":       0.040,
     "tomato":           0.065,
     "watermelon_slice": 0.120,
+    "plum":             0.055,
+    "cherry":           0.020,
+    "golden_strawberry":0.040,
 }
 
 BLENDER_CONVERT = ROOT / ".blender_fbx_to_obj.py"
@@ -206,9 +216,13 @@ def build(name):
     pack, rel_fbx = spec[0], spec[1]
     mode = spec[2] if len(spec) > 2 else "whole"
 
-    fbx_path = LOCAL_PACKS / pack / rel_fbx
-    obj_path = WORK_DIR / f"{name}_raw.obj"
-    convert_fbx_to_obj(fbx_path, obj_path)
+    if mode == "direct_obj":
+        # rel_fbx is the filename of an already-OBJ file in LOCAL_PACKS root
+        obj_path = LOCAL_PACKS / rel_fbx
+    else:
+        fbx_path = LOCAL_PACKS / pack / rel_fbx
+        obj_path = WORK_DIR / f"{name}_raw.obj"
+        convert_fbx_to_obj(fbx_path, obj_path)
 
     m = trimesh.load(obj_path, force="mesh")
     if mode == "horizontal_slice":
@@ -224,15 +238,25 @@ def build(name):
 
 
 def main():
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--fruits", nargs="+", default=None,
+                    help="Build only these fruits (default: all)")
+    ap_args = ap.parse_args()
     if not LOCAL_PACKS.exists():
         raise SystemExit(f"FBX packs not found at {LOCAL_PACKS}")
 
     write_blender_script()
 
+    targets = ap_args.fruits or sorted(FBX_SOURCES.keys())
+    unknown = [n for n in targets if n not in FBX_SOURCES]
+    if unknown:
+        raise SystemExit(f"unknown fruits: {unknown}")
+
     print(f"\n{'fruit':<20s}  {'faces':>6s}  {'verts':>6s}  "
           f"{'bbox_x':>8s}  {'bbox_y':>8s}  {'bbox_z':>8s}  watertight  source")
     print("-" * 110)
-    for name in sorted(FBX_SOURCES.keys()):
+    for name in targets:
         try:
             m = build(name)
             out = OUT_DIR / f"{name}.obj"
@@ -244,7 +268,7 @@ def main():
                   f"{str(m.is_watertight):>10s}  {src_label}")
         except Exception as e:
             print(f"{name:<20s}  FAIL: {e}")
-    print(f"\nWrote 14 fruits to {OUT_DIR.relative_to(ROOT)}")
+    print(f"\nWrote {len(targets)} fruits to {OUT_DIR.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":
