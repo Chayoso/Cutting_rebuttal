@@ -103,7 +103,7 @@ def run_trial(v_cut, trial_id):
     env["PYTHONIOENCODING"] = "utf-8"
 
     t0 = time.time()
-    result = subprocess.run(cmd, capture_output=True, text=True, timeout=3600,
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=5400,
                             encoding="utf-8", errors="replace", env=env)
     elapsed = time.time() - t0
 
