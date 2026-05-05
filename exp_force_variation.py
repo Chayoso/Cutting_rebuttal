@@ -119,7 +119,7 @@ def run_single_trial(trial_dirname, params, label=""):
     env["PYTHONIOENCODING"] = "utf-8"
 
     t0 = time.time()
-    result = subprocess.run(cmd, capture_output=True, text=True, timeout=900,
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=3600,
                             encoding="utf-8", errors="replace", env=env)
     elapsed = time.time() - t0
 
