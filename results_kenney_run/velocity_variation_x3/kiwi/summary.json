@@ -1,0 +1,109 @@
+{
+  "asset": "kiwi",
+  "config": "configs/fruits/kiwi.yaml",
+  "nominal_E_Pa": 350000.0,
+  "nominal_v_mps": 0.3,
+  "trials_per_velocity": 3,
+  "res_kq_override": null,
+  "rec_tau_override": null,
+  "rows": [
+    {
+      "v_cmd": 0.15,
+      "n": 3,
+      "peak_F_mean": 6.040640672047933,
+      "peak_F_std": 1.4049586206818683,
+      "peak_F_range": [
+        4.163722038269043,
+        7.543675422668457
+      ],
+      "v_actual_contact_mean": 0.14618251760325843,
+      "v_actual_contact_min": 0.10020308196544618,
+      "cut_dur_mean": 0.9000000000000011,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.2,
+      "n": 3,
+      "peak_F_mean": 7.0431702931722,
+      "peak_F_std": 3.0380966650829735,
+      "peak_F_range": [
+        2.7534074783325195,
+        9.396614074707031
+      ],
+      "v_actual_contact_mean": 0.20000053590995936,
+      "v_actual_contact_min": 0.19987659528851454,
+      "cut_dur_mean": 0.6666666666666671,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.25,
+      "n": 3,
+      "peak_F_mean": 5.033364931742351,
+      "peak_F_std": 0.9242820962895705,
+      "peak_F_range": [
+        4.320754051208496,
+        6.338662147521973
+      ],
+      "v_actual_contact_mean": 0.2499793755229223,
+      "v_actual_contact_min": 0.24986699223518372,
+      "cut_dur_mean": 0.5333333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.3,
+      "n": 3,
+      "peak_F_mean": 7.01225733757019,
+      "peak_F_std": 2.5364576873131983,
+      "peak_F_range": [
+        3.4695188999176025,
+        9.270637512207031
+      ],
+      "v_actual_contact_mean": 0.2966012821222345,
+      "v_actual_contact_min": 0.27967013418674475,
+      "cut_dur_mean": 0.44999999999999996,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.35,
+      "n": 3,
+      "peak_F_mean": 5.057062943776448,
+      "peak_F_std": 1.4899401516850026,
+      "peak_F_range": [
+        3.9832916259765625,
+        7.164026260375977
+      ],
+      "v_actual_contact_mean": 0.34998412476852536,
+      "v_actual_contact_min": 0.3498510271310807,
+      "cut_dur_mean": 0.3833333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.4,
+      "n": 3,
+      "peak_F_mean": 5.117764155069987,
+      "peak_F_std": 0.7071038179288092,
+      "peak_F_range": [
+        4.386955738067627,
+        6.074296951293945
+      ],
+      "v_actual_contact_mean": 0.3999694995582103,
+      "v_actual_contact_min": 0.39979487657547014,
+      "cut_dur_mean": 0.3333333333333333,
+      "k2_eff_at_peak_mean": 0.0
+    },
+    {
+      "v_cmd": 0.45,
+      "n": 3,
+      "peak_F_mean": 5.8728407224019366,
+      "peak_F_std": 0.714830777362529,
+      "peak_F_range": [
+        4.995548248291016,
+        6.74650764465332
+      ],
+      "v_actual_contact_mean": 0.44561479124240577,
+      "v_actual_contact_min": 0.43243411928415315,
+      "cut_dur_mean": 0.3,
+      "k2_eff_at_peak_mean": 0.0
+    }
+  ]
+}

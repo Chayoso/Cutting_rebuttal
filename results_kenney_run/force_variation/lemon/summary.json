@@ -1,0 +1,35 @@
+{
+  "asset": "lemon",
+  "config": "configs/fruits/lemon.yaml",
+  "noise_pct": 0.1,
+  "seed": 42,
+  "nominal_params": {
+    "youngs_modulus": 1500000.0,
+    "poisson_ratio": 0.33,
+    "density": 900.0,
+    "yield_stress_kpa": 100.0,
+    "cutting_speed_mps_fixed": 0.3
+  },
+  "noise_trials": {
+    "n": 30,
+    "peak_F_mean": 18.60084781060636,
+    "peak_F_std": 1.8113102978971498,
+    "peak_F_range": [
+      15.360900550184843,
+      22.746296991566126
+    ],
+    "cut_dur_mean": 0.44999999999999984,
+    "cut_dur_std": 1.1102230246251565e-16
+  },
+  "nominal_trials": {
+    "n": 3,
+    "peak_F_mean": 19.476802825927734,
+    "peak_F_std": 2.112173290437424,
+    "peak_F_range": [
+      17.96246910095215,
+      22.463769912719727
+    ],
+    "cut_dur_mean": 0.44999999999999996,
+    "cut_dur_std": 0.0
+  }
+}

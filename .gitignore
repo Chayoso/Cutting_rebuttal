@@ -22,3 +22,8 @@ assets/external_packs/
 # Local artifacts
 *.swp
 .DS_Store
+
+# Heavy raw experiment outputs (per-trial JSON + PNGs).
+# Keep only summary.json and final plots in results_kenney_run/.
+logs_kenney_run/
+sweep_logs_kenney_run/

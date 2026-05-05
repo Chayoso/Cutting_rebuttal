@@ -1,0 +1,35 @@
+{
+  "asset": "kiwi",
+  "config": "configs/fruits/kiwi.yaml",
+  "noise_pct": 0.1,
+  "seed": 42,
+  "nominal_params": {
+    "youngs_modulus": 350000.0,
+    "poisson_ratio": 0.33,
+    "density": 1000.0,
+    "yield_stress_kpa": 20.0,
+    "cutting_speed_mps_fixed": 0.3
+  },
+  "noise_trials": {
+    "n": 30,
+    "peak_F_mean": 5.693386794426636,
+    "peak_F_std": 2.5032094320698244,
+    "peak_F_range": [
+      3.142706161271591,
+      15.60890058238425
+    ],
+    "cut_dur_mean": 0.44999999999999984,
+    "cut_dur_std": 1.1102230246251565e-16
+  },
+  "nominal_trials": {
+    "n": 3,
+    "peak_F_mean": 5.998207887013753,
+    "peak_F_std": 2.662135794544632,
+    "peak_F_range": [
+      3.2057318687438965,
+      9.581226348876953
+    ],
+    "cut_dur_mean": 0.44999999999999996,
+    "cut_dur_std": 0.0
+  }
+}

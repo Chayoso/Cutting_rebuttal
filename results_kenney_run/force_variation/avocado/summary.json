@@ -1,0 +1,35 @@
+{
+  "asset": "avocado",
+  "config": "configs/fruits/avocado.yaml",
+  "noise_pct": 0.1,
+  "seed": 42,
+  "nominal_params": {
+    "youngs_modulus": 1200000.0,
+    "poisson_ratio": 0.33,
+    "density": 980.0,
+    "yield_stress_kpa": 50.0,
+    "cutting_speed_mps_fixed": 0.3
+  },
+  "noise_trials": {
+    "n": 30,
+    "peak_F_mean": 22.97587492954914,
+    "peak_F_std": 5.14391146020677,
+    "peak_F_range": [
+      15.998926518197527,
+      38.914049725733186
+    ],
+    "cut_dur_mean": 0.44999999999999984,
+    "cut_dur_std": 1.1102230246251565e-16
+  },
+  "nominal_trials": {
+    "n": 3,
+    "peak_F_mean": 19.978174209594727,
+    "peak_F_std": 1.8124209189544291,
+    "peak_F_range": [
+      18.59579849243164,
+      22.53860855102539
+    ],
+    "cut_dur_mean": 0.44999999999999996,
+    "cut_dur_std": 0.0
+  }
+}

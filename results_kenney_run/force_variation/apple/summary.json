@@ -1,0 +1,35 @@
+{
+  "asset": "apple",
+  "config": "configs/fruits/apple.yaml",
+  "noise_pct": 0.1,
+  "seed": 42,
+  "nominal_params": {
+    "youngs_modulus": 6500000.0,
+    "poisson_ratio": 0.3,
+    "density": 850.0,
+    "yield_stress_kpa": 300.0,
+    "cutting_speed_mps_fixed": 0.3
+  },
+  "noise_trials": {
+    "n": 30,
+    "peak_F_mean": 44.130310304625155,
+    "peak_F_std": 9.911201347545731,
+    "peak_F_range": [
+      30.754459916231387,
+      73.99142379607851
+    ],
+    "cut_dur_mean": 0.44777777777777766,
+    "cut_dur_std": 0.009362388636862617
+  },
+  "nominal_trials": {
+    "n": 3,
+    "peak_F_mean": 55.60511779785156,
+    "peak_F_std": 10.085828426826502,
+    "peak_F_range": [
+      45.10342788696289,
+      69.21489715576172
+    ],
+    "cut_dur_mean": 0.44999999999999996,
+    "cut_dur_std": 0.0
+  }
+}

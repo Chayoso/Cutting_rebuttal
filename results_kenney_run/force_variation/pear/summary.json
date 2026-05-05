@@ -1,0 +1,35 @@
+{
+  "asset": "pear",
+  "config": "configs/fruits/pear.yaml",
+  "noise_pct": 0.1,
+  "seed": 42,
+  "nominal_params": {
+    "youngs_modulus": 5500000.0,
+    "poisson_ratio": 0.3,
+    "density": 1000.0,
+    "yield_stress_kpa": 200.0,
+    "cutting_speed_mps_fixed": 0.3
+  },
+  "noise_trials": {
+    "n": 30,
+    "peak_F_mean": 42.73402060392147,
+    "peak_F_std": 13.38835916352612,
+    "peak_F_range": [
+      30.121872896182985,
+      80.30840194488096
+    ],
+    "cut_dur_mean": 0.44999999999999984,
+    "cut_dur_std": 1.1102230246251565e-16
+  },
+  "nominal_trials": {
+    "n": 3,
+    "peak_F_mean": 41.53622182210287,
+    "peak_F_std": 1.8857202686373544,
+    "peak_F_range": [
+      38.88902282714844,
+      43.139400482177734
+    ],
+    "cut_dur_mean": 0.44999999999999996,
+    "cut_dur_std": 0.0
+  }
+}
