@@ -493,7 +493,13 @@ class MPMCuttingSim:
         self.board_impulse_g[None] = ti.Vector([0.0, 0.0, 0.0])
         self.knife_impulse_blade_g[None] = ti.Vector([0.0, 0.0, 0.0])
         self.knife_impulse_handle_g[None] = ti.Vector([0.0, 0.0, 0.0])
-        
+
+        # ----- fruit COM (mass-weighted centroid) for drift / friction studies -----
+        self.com_pos_g = ti.Vector.field(3, dtype=ti.f32, shape=())
+        self.com_mass_g = ti.field(dtype=ti.f32, shape=())
+        self.com_pos_g[None] = ti.Vector([0.0, 0.0, 0.0])
+        self.com_mass_g[None] = 0.0
+
         # ----- collision detection -----
         self.knife_board_collision_detected = ti.field(dtype=ti.i32, shape=())
         self.knife_mesh_collision_detected = ti.field(dtype=ti.i32, shape=())
@@ -646,6 +652,19 @@ class MPMCuttingSim:
         self.board_impulse_g[None] = ti.Vector([0.0, 0.0, 0.0])
         self.knife_impulse_blade_g[None] = ti.Vector([0.0, 0.0, 0.0])
         self.knife_impulse_handle_g[None] = ti.Vector([0.0, 0.0, 0.0])
+
+    @ti.kernel
+    def _compute_fruit_com(self):
+        """Mass-weighted centroid over all live fruit particles (world space)."""
+        self.com_pos_g[None] = ti.Vector([0.0, 0.0, 0.0])
+        self.com_mass_g[None] = 0.0
+        for p in range(self.pcount[None]):
+            m = self.particles[p].mass
+            x = self.particles[p].x
+            ti.atomic_add(self.com_pos_g[None][0], m * x[0])
+            ti.atomic_add(self.com_pos_g[None][1], m * x[1])
+            ti.atomic_add(self.com_pos_g[None][2], m * x[2])
+            ti.atomic_add(self.com_mass_g[None], m)
 
 
 
@@ -1275,6 +1294,18 @@ class MPMCuttingSim:
                 # Normalized scalars (for context)
                 dx, dt, E = float(sim.dx_units), float(sim.dt_units), float(sim.E_units)
                 vcap = dx / max(1e-6, dt)
+                # Fruit centroid (mass-weighted) in world coords for drift studies
+                sim._compute_fruit_com()
+                _com_total_mass = float(sim.com_mass_g[None])
+                if _com_total_mass > 1e-9:
+                    _com_v = sim.com_pos_g[None]
+                    fruit_com = {
+                        "x": float(_com_v[0]) / _com_total_mass,
+                        "y": float(_com_v[1]) / _com_total_mass,
+                        "z": float(_com_v[2]) / _com_total_mass,
+                    }
+                else:
+                    fruit_com = {"x": 0.0, "y": 0.0, "z": 0.0}
                 return {
                     "frame": int(frame_idx),
                     "timestep": int(sim._frame),
@@ -1282,6 +1313,7 @@ class MPMCuttingSim:
                     "ee_pos_m": ee["pos"],
                     "ee_normal": ee["normal"],
                     "knife": {"y_anim": ee["y_anim"], "z_offset": ee["z_offset"]},
+                    "fruit_com": fruit_com,
                     "relative_eef_force": relative_eef,
                     "force_world_N": f_out,
                     "force_normalized": f_out_n,
