@@ -1,4 +1,4 @@
-world:
+﻿world:
   grid_resolution: 120
   bounds_min:
   - -0.25

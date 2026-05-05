@@ -1,4 +1,4 @@
-world:
+﻿world:
   grid_resolution: 120
   bounds_min:
   - -0.25
@@ -18,6 +18,11 @@ world:
 cutting_mesh:
   mesh_path: assets/fruits/golden_strawberry.obj
   sdf_voxel: 30
+  initial_transform:
+    scale:
+    - 2.0
+    - 2.0
+    - 2.0
   density: 900.0
   particle_spacing: 0.0025
   elasticity:

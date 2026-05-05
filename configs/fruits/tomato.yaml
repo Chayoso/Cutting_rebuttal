@@ -1,4 +1,4 @@
-world:
+﻿world:
   grid_resolution: 120
   bounds_min:
   - -0.25
@@ -18,6 +18,11 @@ world:
 cutting_mesh:
   mesh_path: assets/fruits/tomato.obj
   sdf_voxel: 40
+  initial_transform:
+    scale:
+    - 1.85
+    - 1.85
+    - 1.85
   density: 950.0
   particle_spacing: 0.0025
   elasticity:
