@@ -16,13 +16,13 @@
   - 0.0
   reso_exponent: 1.0
 cutting_mesh:
-  mesh_path: assets/fruits/grape.obj
+  mesh_path: assets/fruit2/grape.obj
   sdf_voxel: 30
   initial_transform:
     scale:
-    - 1.4
-    - 1.4
-    - 1.4
+    - 0.015
+    - 0.015
+    - 0.015
   density: 1050.0
   particle_spacing: 0.0025
   elasticity:

@@ -16,13 +16,13 @@
   - 0.0
   reso_exponent: 1.0
 cutting_mesh:
-  mesh_path: assets/fruits/golden_strawberry.obj
+  mesh_path: assets/fruit2/golden_strawberry.obj
   sdf_voxel: 30
   initial_transform:
     scale:
-    - 2.0
-    - 2.0
-    - 2.0
+    - 0.025
+    - 0.025
+    - 0.025
   density: 900.0
   particle_spacing: 0.0025
   elasticity:

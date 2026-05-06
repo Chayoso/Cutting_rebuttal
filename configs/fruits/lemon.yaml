@@ -16,13 +16,13 @@
   - 0.0
   reso_exponent: 1.0
 cutting_mesh:
-  mesh_path: assets/fruits/lemon.obj
+  mesh_path: assets/fruit2/lemon.obj
   sdf_voxel: 51
   initial_transform:
     scale:
-    - 2
-    - 2
-    - 2
+    - 0.014
+    - 0.014
+    - 0.014
   density: 900.0
   particle_spacing: 0.0025
   elasticity:

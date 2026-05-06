@@ -16,7 +16,7 @@
   - 0.0
   reso_exponent: 1.0
 cutting_mesh:
-  mesh_path: assets/fruits/plum.obj
+  mesh_path: assets/fruit2/plum.obj
   sdf_voxel: 40
   initial_transform:
     scale:

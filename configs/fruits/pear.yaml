@@ -16,8 +16,13 @@
   - 0.0
   reso_exponent: 1.0
 cutting_mesh:
-  mesh_path: assets/fruits/pear.obj
+  mesh_path: assets/fruit2/pear.obj
   sdf_voxel: 58
+  initial_transform:
+    scale:
+    - 0.06
+    - 0.06
+    - 0.06
   density: 1000.0
   particle_spacing: 0.0025
   elasticity:

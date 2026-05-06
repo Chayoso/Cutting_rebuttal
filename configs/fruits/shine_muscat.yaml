@@ -16,18 +16,18 @@
   - 0.0
   reso_exponent: 1.0
 cutting_mesh:
-  mesh_path: assets/fruit2/kiwi.obj
-  sdf_voxel: 40
+  mesh_path: assets/fruit2/shine_muscat.obj
+  sdf_voxel: 30
   initial_transform:
     scale:
-    - 0.008
-    - 0.008
-    - 0.008
-  density: 1000.0
+    - 0.030
+    - 0.030
+    - 0.030
+  density: 1050.0
   particle_spacing: 0.0025
   elasticity:
     youngs_modulus: 350000.0
-    poisson_ratio: 0.33
+    poisson_ratio: 0.35
   grid_damping_ratio: 0.06
   particle_damping: 0.05
   restitution: 0.005
@@ -91,7 +91,7 @@ damage:
 plasticity:
   enabled: true
   model: j2
-  yield_stress_kpa: 20.0
+  yield_stress_kpa: 15.0
   hardening_kpa: 0.0
   viscoplastic_gamma: 0.0
 stability:

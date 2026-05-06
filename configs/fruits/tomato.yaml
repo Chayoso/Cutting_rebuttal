@@ -16,7 +16,7 @@
   - 0.0
   reso_exponent: 1.0
 cutting_mesh:
-  mesh_path: assets/fruits/tomato.obj
+  mesh_path: assets/fruit2/tomato.obj
   sdf_voxel: 40
   initial_transform:
     scale:
