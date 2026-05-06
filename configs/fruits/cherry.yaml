@@ -104,4 +104,4 @@ output:
     out_dir: logs
     axis_map: maniskill
     eef_baseline: 0.0
-    eef_scale: 70.0
+    eef_scale: 140.0
