@@ -368,7 +368,7 @@ class MPMCuttingSim:
                     zmax_i = zmax - self.z_margin_ratio * rng
                     zmin_i, zmax_i = min(zmin_i, zmax_i), max(zmin_i, zmax_i)
                     if self.num_cuts <= 1:
-                        z_world = [0.0]
+                        z_world = [(zmin + zmax) / 2.0]
                     else:
                         z_world = list(np.linspace(zmin_i, zmax_i, int(self.num_cuts), dtype=np.float32))
 

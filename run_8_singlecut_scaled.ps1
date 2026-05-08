@@ -3,7 +3,7 @@ $env:PYTHONIOENCODING = "utf-8"
 $env:CUDA_VISIBLE_DEVICES = "0"
 Set-Location $PSScriptRoot
 $py = ".\.venv\Scripts\python.exe"
-$fruits = @("grape", "cherry", "shine_muscat", "kiwi", "lemon", "tomato", "plum", "golden_strawberry", "pear")
+$fruits = @("grape", "pear", "tomato", "plum", "lemon", "shine_muscat", "cherry", "kiwi")
 $logDir = "sweep_logs"
 New-Item -ItemType Directory -Force -Path $logDir | Out-Null
 $mainLog = Join-Path $logDir "scaled_run.log"
