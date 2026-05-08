@@ -23,6 +23,10 @@ cutting_mesh:
     - 0.030
     - 0.030
     - 0.030
+    euler_deg_xyz:
+    - -90
+    - 0
+    - 0
   density: 1050.0
   particle_spacing: 0.0025
   elasticity:
@@ -38,7 +42,7 @@ knife:
     axis: Y
     fraction: 0.55
   motion:
-    knife_start_y: 0.125
+    knife_start_y: 0.17
     knife_stop_y: -0.01
     cutting_speed_mps: 0.3
     return_speed_mps: 1.0
